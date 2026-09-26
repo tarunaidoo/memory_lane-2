@@ -5,12 +5,15 @@
 const exploreButton =
     document.getElementById("exploreButton");
 
+if (exploreButton) {
 
-exploreButton.addEventListener("click", function () {
+    exploreButton.addEventListener("click", function () {
 
-    openMemoryBrowser();
+        openMemoryBrowser();
 
-});
+    });
+
+}
 
 
 /* =========================================
@@ -74,10 +77,10 @@ const memories = {
             "photo11.png"
         ],
 
-
         "Sep26": [
             "photo5.png"
         ]
+
     }
 
 };
@@ -133,6 +136,16 @@ const memoryResults =
 
 function openMemoryBrowser() {
 
+    if (!memoryModal) {
+
+        console.error(
+            "Memory modal was not found. Check that index.html contains id='memoryModal'."
+        );
+
+        return;
+
+    }
+
     memoryModal.classList.add("active");
 
     document.body.classList.add("modal-open");
@@ -148,6 +161,10 @@ function openMemoryBrowser() {
 
 function closeMemoryBrowser() {
 
+    if (!memoryModal) {
+        return;
+    }
+
     memoryModal.classList.remove("active");
 
     document.body.classList.remove("modal-open");
@@ -160,6 +177,10 @@ function closeMemoryBrowser() {
 ========================================= */
 
 function updateMonthDropdown() {
+
+    if (!yearSelect || !monthSelect) {
+        return;
+    }
 
     const selectedYear =
         yearSelect.value;
@@ -215,6 +236,22 @@ if (yearSelect) {
 
         updateMonthDropdown();
 
+        /*
+           Clear previous results when
+           changing year.
+        */
+
+        if (memoryResults) {
+
+            memoryResults.innerHTML = `
+                <p class="empty-message">
+                    Select a month and click
+                    "View Memories".
+                </p>
+            `;
+
+        }
+
     });
 
 }
@@ -241,6 +278,15 @@ if (viewMemoriesButton) {
 
 function displayMemories() {
 
+    if (!yearSelect ||
+        !monthSelect ||
+        !memoryResults) {
+
+        return;
+
+    }
+
+
     const year =
         yearSelect.value;
 
@@ -255,7 +301,9 @@ function displayMemories() {
     memoryResults.innerHTML = "";
 
 
-    /* No photos */
+    /* =========================================
+       NO PHOTOS
+    ========================================= */
 
     if (!photos || photos.length === 0) {
 
@@ -374,15 +422,18 @@ function displayMemories() {
 
 if (memoryModal) {
 
-    memoryModal.addEventListener("click", function (event) {
+    memoryModal.addEventListener(
+        "click",
+        function (event) {
 
-        if (event.target === memoryModal) {
+            if (event.target === memoryModal) {
 
-            closeMemoryBrowser();
+                closeMemoryBrowser();
+
+            }
 
         }
-
-    });
+    );
 
 }
 
@@ -391,15 +442,18 @@ if (memoryModal) {
    ESCAPE KEY TO CLOSE
 ========================================= */
 
-document.addEventListener("keydown", function (event) {
+document.addEventListener(
+    "keydown",
+    function (event) {
 
-    if (event.key === "Escape") {
+        if (event.key === "Escape") {
 
-        closeMemoryBrowser();
+            closeMemoryBrowser();
+
+        }
 
     }
-
-});
+);
 
 
 /* =========================================
