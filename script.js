@@ -28,8 +28,8 @@ const monthNames = {
     Jun26: "June",
     Jul26: "July",
     Aug26: "August",
-    Sep26: "September",
-    Sep25: "September",
+    Sept26: "September",
+    Sept25: "September",
     Oct25: "October",
     Nov25: "November",
     Dec25: "December"
@@ -44,8 +44,8 @@ const monthNumbers = {
     Jun26: 6,
     Jul26: 7,
     Aug26: 8,
-    Sep26: 9,
-    Sep25: 9,
+    Sept26: 9,
+    Sept25: 9,
     Oct25: 10,
     Nov25: 11,
     Dec25: 12
