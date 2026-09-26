@@ -39,26 +39,31 @@
 
     <section id="home" class="hero">
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-        <p class="eyebrow">
-            A COLLECTION OF
-        </p>
+            <p class="eyebrow">
+                A COLLECTION OF
+            </p>
 
-        <h1>
-            Beautiful Memories
-        </h1>
+            <h1>
+                Beautiful Memories
+            </h1>
 
-        <p>
-            A little place to keep the moments,
-            adventures and memories that matter most.
-        </p>
+            <p>
+                A little place to keep the moments,
+                adventures and memories that matter most.
+            </p>
 
-        <button id="exploreButton" class="primary-button">
-            Explore Memories
-        </button>
+            <button
+                id="exploreButton"
+                class="primary-button"
+                type="button">
 
-    </div>
+                Explore Memories
+
+            </button>
+
+        </div>
 
     </section>
 
@@ -84,9 +89,13 @@
 
         <div class="album-grid">
 
-            <!-- 2026 -->
+
+            <!-- =========================
+                 2026 ALBUM
+            ========================== -->
 
             <button
+                type="button"
                 class="album-card"
                 onclick="openMemoryBrowser()">
 
@@ -113,9 +122,12 @@
             </button>
 
 
-            <!-- Adventures -->
+            <!-- =========================
+                 ADVENTURES
+            ========================== -->
 
             <button
+                type="button"
                 class="album-card"
                 onclick="openMemoryBrowser()">
 
@@ -142,9 +154,12 @@
             </button>
 
 
-            <!-- Special Moments -->
+            <!-- =========================
+                 SPECIAL MOMENTS
+            ========================== -->
 
             <button
+                type="button"
                 class="album-card"
                 onclick="openMemoryBrowser()">
 
@@ -193,11 +208,12 @@
 
         </div>
 
+
         <div
             class="photo-grid"
             id="mainGallery">
 
-            <!-- Photos will be loaded here -->
+            <!-- Photos can be added here later -->
 
         </div>
 
@@ -210,22 +226,34 @@
 
     <div
         id="memoryModal"
-        class="memory-modal">
+        class="memory-modal"
+        aria-hidden="true">
 
-        <div class="memory-modal-content">
+        <div
+            class="memory-modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="memoryModalTitle">
 
-            <!-- CLOSE -->
+
+            <!-- =========================
+                 CLOSE BUTTON
+            ========================== -->
 
             <button
+                type="button"
                 class="close-button"
-                onclick="closeMemoryBrowser()">
+                onclick="closeMemoryBrowser()"
+                aria-label="Close memory browser">
 
                 &times;
 
             </button>
 
 
-            <!-- HEADING -->
+            <!-- =========================
+                 POPUP HEADING
+            ========================== -->
 
             <div class="modal-heading">
 
@@ -233,7 +261,7 @@
                     EXPLORE
                 </p>
 
-                <h2>
+                <h2 id="memoryModalTitle">
                     Memory Lane
                 </h2>
 
@@ -283,96 +311,16 @@
                     </label>
 
                     <select id="monthSelect">
-
-                        <!-- 2025 -->
-
-                        <optgroup
-                            label="2025"
-                            id="months2025">
-
-                            <option value="Sept25">
-                                September 2025
-                            </option>
-
-                            <option value="Oct25">
-                                October 2025
-                            </option>
-
-                            <option value="Nov25">
-                                November 2025
-                            </option>
-
-                            <option value="Dec25">
-                                December 2025
-                            </option>
-
-                        </optgroup>
-
-
-                        <!-- 2026 -->
-
-                        <optgroup
-                            label="2026"
-                            id="months2026">
-
-                            <option value="Jan26">
-                                January 2026
-                            </option>
-
-                            <option value="Feb26">
-                                February 2026
-                            </option>
-
-                            <option value="Mar26">
-                                March 2026
-                            </option>
-
-                            <option value="Apr26">
-                                April 2026
-                            </option>
-
-                            <option value="May26">
-                                May 2026
-                            </option>
-
-                            <option value="Jun26">
-                                June 2026
-                            </option>
-
-                            <option value="Jul26">
-                                July 2026
-                            </option>
-
-                            <option value="Aug26">
-                                August 2026
-                            </option>
-
-                            <option value="Sep26">
-                                September 2026
-                            </option>
-
-                            <option value="Oct26">
-                                October 2026
-                            </option>
-
-                            <option value="Nov26">
-                                November 2026
-                            </option>
-
-                            <option value="Dec26">
-                                December 2026
-                            </option>
-
-                        </optgroup>
-
+                        <!-- JavaScript fills this dropdown -->
                     </select>
 
                 </div>
 
 
-                <!-- VIEW BUTTON -->
+                <!-- VIEW MEMORIES -->
 
                 <button
+                    type="button"
                     id="viewMemoriesButton"
                     class="primary-button">
 
@@ -384,7 +332,7 @@
 
 
             <!-- =========================
-                 RESULTS
+                 MEMORY RESULTS
             ========================== -->
 
             <div
