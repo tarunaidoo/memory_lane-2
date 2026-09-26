@@ -1,3 +1,7 @@
+/* =========================================
+   RESET
+========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -17,9 +21,16 @@ body {
 }
 
 
-/* =========================
+/* Prevent background scrolling when popup is open */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+
+/* =========================================
    NAVIGATION
-========================= */
+========================================= */
 
 .navbar {
     height: 80px;
@@ -39,7 +50,7 @@ body {
 }
 
 
-.navbar h1 {
+.logo {
     font-size: 24px;
     font-weight: normal;
 }
@@ -53,10 +64,14 @@ body {
 
 .navbar a {
     text-decoration: none;
+
     color: #292722;
 
     font-family: Arial, sans-serif;
+
     font-size: 14px;
+
+    transition: opacity 0.2s ease;
 }
 
 
@@ -65,9 +80,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================
    HERO
-========================= */
+========================================= */
 
 .hero {
     min-height: 85vh;
@@ -94,20 +109,25 @@ body {
 }
 
 
-.small-title {
+.eyebrow {
     font-family: Arial, sans-serif;
 
-    font-size: 12px;
+    font-size: 0.8rem;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
-    margin-bottom: 20px;
+    color: #8b6f5a;
 
-    opacity: 0.6;
+    font-weight: bold;
 }
 
 
-.hero h2 {
+.hero .eyebrow {
+    margin-bottom: 20px;
+}
+
+
+.hero h1 {
     font-size: clamp(60px, 10vw, 110px);
 
     line-height: 0.9;
@@ -118,20 +138,26 @@ body {
 }
 
 
-.description {
+.hero p:not(.eyebrow) {
     font-family: Arial, sans-serif;
 
     font-size: 16px;
 
     line-height: 1.7;
 
-    max-width: 450px;
+    max-width: 500px;
 
     margin: 0 auto 30px;
+
+    color: #555;
 }
 
 
-button {
+/* =========================================
+   BUTTONS
+========================================= */
+
+.primary-button {
     border: none;
 
     padding: 15px 30px;
@@ -146,30 +172,41 @@ button {
 
     border-radius: 30px;
 
-    transition: transform 0.2s;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
 }
 
 
-button:hover {
+.primary-button:hover {
     transform: translateY(-3px);
+
+    background: #4a4740;
 }
 
 
-/* =========================
+/* =========================================
    ALBUMS
-========================= */
+========================================= */
 
-.albums {
+.albums-section {
     padding: 120px 8%;
 }
 
 
-.albums > h2 {
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 60px;
+}
+
+
+.section-heading h2 {
     font-size: 50px;
 
     font-weight: normal;
 
-    margin-bottom: 60px;
+    margin: 10px 0;
 }
 
 
@@ -183,32 +220,76 @@ button:hover {
 }
 
 
+/* Album card */
+
 .album-card {
+    width: 100%;
+
+    min-height: 360px;
+
+    padding: 40px 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: flex-end;
+
+    text-align: left;
+
     cursor: pointer;
 
+    background: #e5dfd3;
+
+    color: #292722;
+
+    border-radius: 4px;
+
+    border: none;
+
     transition:
-        transform 0.3s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    font-family: Georgia, serif;
 }
 
 
 .album-card:hover {
     transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.10);
 }
 
 
-.album-image {
-    height: 350px;
+/* Album icon */
 
-    display: flex;
+.album-icon {
+    font-size: 65px;
 
-    align-items: center;
-    justify-content: center;
+    margin-bottom: auto;
 
-    font-size: 70px;
+    align-self: center;
+}
 
-    background: #e5dfd3;
 
-    margin-bottom: 20px;
+/* Album year */
+
+.album-year {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #8b6f5a;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
 }
 
 
@@ -217,7 +298,7 @@ button:hover {
 
     font-weight: normal;
 
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 
@@ -226,15 +307,389 @@ button:hover {
 
     font-size: 14px;
 
-    opacity: 0.6;
+    line-height: 1.6;
+
+    color: #666;
+
+    margin-bottom: 20px;
 }
 
 
-/* =========================
-   ABOUT
-========================= */
+.album-link {
+    font-family: Arial, sans-serif;
 
-.about {
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   PHOTO GALLERY
+========================================= */
+
+.gallery-section {
+    padding: 100px 8%;
+
+    background: #f8f5ef;
+}
+
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+.photo-card {
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.photo-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+.photo-card img {
+    width: 100%;
+
+    height: 280px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.photo-info {
+    padding: 18px;
+}
+
+
+.photo-info h3 {
+    margin: 0 0 5px;
+
+    font-size: 20px;
+
+    font-weight: normal;
+}
+
+
+.photo-info p {
+    margin: 0;
+
+    color: #888;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   MEMORY MODAL
+========================================= */
+
+.memory-modal {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(41, 39, 34, 0.65);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    z-index: 1000;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+/* Active popup */
+
+.memory-modal.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================================
+   MODAL CONTENT
+========================================= */
+
+.memory-modal-content {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #f8f5ef;
+
+    padding: 60px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.25);
+
+    transform: translateY(20px);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.memory-modal.active .memory-modal-content {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.close-button {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    color: #292722;
+
+    border: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.close-button:hover {
+    background: #e5dfd3;
+
+    transform: none;
+}
+
+
+/* =========================================
+   MODAL HEADING
+========================================= */
+
+.modal-heading {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.modal-heading h2 {
+    font-size: 48px;
+
+    font-weight: normal;
+
+    margin: 10px 0 15px;
+}
+
+
+.modal-heading p:not(.eyebrow) {
+    font-family: Arial, sans-serif;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   MEMORY FILTERS
+========================================= */
+
+.memory-filters {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    padding: 25px;
+
+    background: #eae4d8;
+
+    border-radius: 8px;
+
+    margin-bottom: 45px;
+}
+
+
+.filter-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.filter-group label {
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    color: #666;
+}
+
+
+.filter-group select {
+    min-width: 180px;
+
+    padding: 13px 40px 13px 15px;
+
+    border: 1px solid #d0c8bb;
+
+    border-radius: 5px;
+
+    background: #fffdf9;
+
+    color: #292722;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    outline: none;
+}
+
+
+.filter-group select:focus {
+    border-color: #8b6f5a;
+}
+
+
+/* =========================================
+   MEMORY RESULTS
+========================================= */
+
+.memory-results {
+    width: 100%;
+}
+
+
+.memory-results-heading {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+
+.memory-results-heading h3 {
+    font-size: 35px;
+
+    font-weight: normal;
+
+    margin-top: 8px;
+}
+
+
+.empty-message {
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: #777;
+
+    font-family: Arial, sans-serif;
+}
+
+
+.empty-message h3 {
+    font-family: Georgia, serif;
+
+    color: #292722;
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-section {
     padding: 120px 20px;
 
     text-align: center;
@@ -243,25 +698,34 @@ button:hover {
 }
 
 
-.about h2 {
+.about-content {
+    max-width: 600px;
+
+    margin: 0 auto;
+}
+
+
+.about-section h2 {
     font-size: 45px;
 
     font-weight: normal;
 
-    margin-bottom: 20px;
+    margin: 15px 0 20px;
 }
 
 
-.about p {
+.about-section p:not(.eyebrow) {
     font-family: Arial, sans-serif;
 
     opacity: 0.7;
+
+    line-height: 1.7;
 }
 
 
-/* =========================
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 footer {
     text-align: center;
@@ -276,29 +740,82 @@ footer {
 }
 
 
-/* =========================
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .album-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .album-card {
+        min-height: 300px;
+    }
+
+
+    .photo-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .memory-modal-content {
+        padding: 50px 35px;
+    }
+
+}
+
+
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
 @media (max-width: 700px) {
 
     .navbar {
+        height: 70px;
+
         padding: 0 5%;
     }
 
 
+    .logo {
+        font-size: 20px;
+    }
+
+
     .navbar nav {
-        gap: 15px;
+        gap: 12px;
     }
 
 
-    .hero h2 {
-        font-size: 65px;
+    .navbar a {
+        font-size: 11px;
     }
 
 
-    .albums {
+    .hero {
+        min-height: 80vh;
+
+        padding: 60px 20px;
+    }
+
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+
+    .albums-section {
         padding: 80px 5%;
+    }
+
+
+    .section-heading h2 {
+        font-size: 40px;
     }
 
 
@@ -307,91 +824,80 @@ footer {
     }
 
 
-    .album-image {
-        height: 300px;
+    .album-card {
+        min-height: 300px;
     }
 
-}
 
-/* =========================
-   PHOTO GALLERY
-   ========================= */
+    .gallery-section {
+        padding: 80px 5%;
+    }
 
-.gallery-section {
-    padding: 80px 8%;
-    background: #f8f5ef;
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.eyebrow {
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    color: #8b6f5a;
-    font-weight: bold;
-}
-
-.section-heading h2 {
-    font-size: 2.5rem;
-    margin: 10px 0;
-}
-
-.section-heading p {
-    color: #777;
-}
-
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.photo-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-}
-
-.photo-card:hover {
-    transform: translateY(-6px);
-}
-
-.photo-card img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-}
-
-.photo-info {
-    padding: 18px;
-}
-
-.photo-info h3 {
-    margin: 0 0 5px;
-}
-
-.photo-info p {
-    margin: 0;
-    color: #888;
-}
-
-
-/* Mobile */
-
-@media (max-width: 768px) {
 
     .photo-grid {
         grid-template-columns: 1fr;
     }
 
+
     .photo-card img {
         height: 300px;
+    }
+
+
+    /* Modal */
+
+    .memory-modal {
+        padding: 15px;
+    }
+
+
+    .memory-modal-content {
+        max-height: 95vh;
+
+        padding: 50px 20px 30px;
+    }
+
+
+    .modal-heading h2 {
+        font-size: 38px;
+    }
+
+
+    /* Filters */
+
+    .memory-filters {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 20px;
+    }
+
+
+    .filter-group select {
+        width: 100%;
+    }
+
+
+    .memory-filters .primary-button {
+        width: 100%;
+    }
+
+
+    .memory-results-heading h3 {
+        font-size: 28px;
+    }
+
+
+    /* About */
+
+    .about-section {
+        padding: 80px 20px;
+    }
+
+
+    .about-section h2 {
+        font-size: 38px;
     }
 
 }
