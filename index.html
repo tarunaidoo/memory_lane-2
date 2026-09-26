@@ -86,7 +86,9 @@
 
             <!-- 2026 -->
 
-            <button class="album-card" onclick="openMemoryBrowser()">
+            <button
+                class="album-card"
+                onclick="openMemoryBrowser()">
 
                 <div class="album-icon">
                     📸
@@ -113,7 +115,9 @@
 
             <!-- Adventures -->
 
-            <button class="album-card" onclick="openMemoryBrowser()">
+            <button
+                class="album-card"
+                onclick="openMemoryBrowser()">
 
                 <div class="album-icon">
                     ✈️
@@ -140,7 +144,9 @@
 
             <!-- Special Moments -->
 
-            <button class="album-card" onclick="openMemoryBrowser()">
+            <button
+                class="album-card"
+                onclick="openMemoryBrowser()">
 
                 <div class="album-icon">
                     ❤️
@@ -170,7 +176,7 @@
 
 
     <!-- =========================
-         MEMORY GALLERY
+         MAIN GALLERY
     ========================== -->
 
     <section id="gallery" class="gallery-section">
@@ -187,16 +193,213 @@
 
         </div>
 
+        <div
+            class="photo-grid"
+            id="mainGallery">
 
-        <div class="photo-grid" id="mainGallery">
-
-            <!--
-                The gallery will be populated by JavaScript.
-            -->
+            <!-- Photos will be loaded here -->
 
         </div>
 
     </section>
+
+
+    <!-- =========================
+         MEMORY BROWSER POPUP
+    ========================== -->
+
+    <div
+        id="memoryModal"
+        class="memory-modal">
+
+        <div class="memory-modal-content">
+
+            <!-- CLOSE -->
+
+            <button
+                class="close-button"
+                onclick="closeMemoryBrowser()">
+
+                &times;
+
+            </button>
+
+
+            <!-- HEADING -->
+
+            <div class="modal-heading">
+
+                <p class="eyebrow">
+                    EXPLORE
+                </p>
+
+                <h2>
+                    Memory Lane
+                </h2>
+
+                <p>
+                    Choose a year and month to explore your memories.
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 FILTERS
+            ========================== -->
+
+            <div class="memory-filters">
+
+
+                <!-- YEAR -->
+
+                <div class="filter-group">
+
+                    <label for="yearSelect">
+                        Year
+                    </label>
+
+                    <select id="yearSelect">
+
+                        <option value="2025">
+                            2025
+                        </option>
+
+                        <option value="2026" selected>
+                            2026
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MONTH -->
+
+                <div class="filter-group">
+
+                    <label for="monthSelect">
+                        Month
+                    </label>
+
+                    <select id="monthSelect">
+
+                        <!-- 2025 -->
+
+                        <optgroup
+                            label="2025"
+                            id="months2025">
+
+                            <option value="Sept25">
+                                September 2025
+                            </option>
+
+                            <option value="Oct25">
+                                October 2025
+                            </option>
+
+                            <option value="Nov25">
+                                November 2025
+                            </option>
+
+                            <option value="Dev25">
+                                December 2025
+                            </option>
+
+                        </optgroup>
+
+
+                        <!-- 2026 -->
+
+                        <optgroup
+                            label="2026"
+                            id="months2026">
+
+                            <option value="Jan26">
+                                January 2026
+                            </option>
+
+                            <option value="Feb26">
+                                February 2026
+                            </option>
+
+                            <option value="Mar26">
+                                March 2026
+                            </option>
+
+                            <option value="Apr26">
+                                April 2026
+                            </option>
+
+                            <option value="May26">
+                                May 2026
+                            </option>
+
+                            <option value="Jun26">
+                                June 2026
+                            </option>
+
+                            <option value="Jul26">
+                                July 2026
+                            </option>
+
+                            <option value="Aug26">
+                                August 2026
+                            </option>
+
+                            <option value="Sep26">
+                                September 2026
+                            </option>
+
+                            <option value="Oct26">
+                                October 2026
+                            </option>
+
+                            <option value="Nov26">
+                                November 2026
+                            </option>
+
+                            <option value="Dec26">
+                                December 2026
+                            </option>
+
+                        </optgroup>
+
+                    </select>
+
+                </div>
+
+
+                <!-- VIEW BUTTON -->
+
+                <button
+                    id="viewMemoriesButton"
+                    class="primary-button">
+
+                    View Memories
+
+                </button>
+
+            </div>
+
+
+            <!-- =========================
+                 RESULTS
+            ========================== -->
+
+            <div
+                id="memoryResults"
+                class="memory-results">
+
+                <p class="empty-message">
+                    Select a year and month to view memories.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
     <!-- =========================
@@ -223,160 +426,6 @@
         </div>
 
     </section>
-
-
-    <!-- =========================
-         MEMORY BROWSER POPUP
-    ========================== -->
-
-    <div id="memoryModal" class="memory-modal">
-
-        <div class="memory-modal-content">
-
-            <!-- Close button -->
-
-            <button
-                class="close-button"
-                onclick="closeMemoryBrowser()">
-                &times;
-            </button>
-
-
-            <!-- Heading -->
-
-            <div class="modal-heading">
-
-                <p class="eyebrow">
-                    EXPLORE
-                </p>
-
-                <h2>
-                    Memory Lane
-                </h2>
-
-                <p>
-                    Choose a year and month to explore your memories.
-                </p>
-
-            </div>
-
-
-            <!-- Filters -->
-
-            <div class="memory-filters">
-
-                <!-- Year -->
-
-                <div class="filter-group">
-
-                    <label for="yearSelect">
-                        Year
-                    </label>
-
-                    <select id="yearSelect">
-
-                        <option value="2025">
-                            2025
-                        </option>
-
-                        <option value="2026" selected>
-                            2026
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- Month -->
-
-                <div class="filter-group">
-
-                    <label for="monthSelect">
-                        Month
-                    </label>
-
-                    <select id="monthSelect">
-
-                        <option value="January">
-                            January
-                        </option>
-
-                        <option value="February">
-                            February
-                        </option>
-
-                        <option value="March">
-                            March
-                        </option>
-
-                        <option value="April">
-                            April
-                        </option>
-
-                        <option value="May">
-                            May
-                        </option>
-
-                        <option value="June">
-                            June
-                        </option>
-
-                        <option value="July">
-                            July
-                        </option>
-
-                        <option value="August">
-                            August
-                        </option>
-
-                        <option value="September" selected>
-                            September
-                        </option>
-
-                        <option value="October">
-                            October
-                        </option>
-
-                        <option value="November">
-                            November
-                        </option>
-
-                        <option value="December">
-                            December
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- View button -->
-
-                <button
-                    id="viewMemoriesButton"
-                    class="primary-button">
-                    View Memories
-                </button>
-
-            </div>
-
-
-            <!-- Selected memories -->
-
-            <div
-                id="memoryResults"
-                class="memory-results">
-
-                <p class="empty-message">
-                    Select a year and month to view memories.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
 
 
     <!-- =========================
