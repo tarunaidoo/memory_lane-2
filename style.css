@@ -8,11 +8,9 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
     font-family: Georgia, serif;
@@ -49,18 +47,15 @@ body.modal-open {
     z-index: 100;
 }
 
-
 .logo {
     font-size: 24px;
     font-weight: normal;
 }
 
-
 .navbar nav {
     display: flex;
     gap: 30px;
 }
-
 
 .navbar a {
     text-decoration: none;
@@ -73,7 +68,6 @@ body.modal-open {
 
     transition: opacity 0.2s ease;
 }
-
 
 .navbar a:hover {
     opacity: 0.6;
@@ -103,11 +97,9 @@ body.modal-open {
         );
 }
 
-
 .hero-content {
     max-width: 700px;
 }
-
 
 .eyebrow {
     font-family: Arial, sans-serif;
@@ -121,11 +113,9 @@ body.modal-open {
     font-weight: bold;
 }
 
-
 .hero .eyebrow {
     margin-bottom: 20px;
 }
-
 
 .hero h1 {
     font-size: clamp(60px, 10vw, 110px);
@@ -136,7 +126,6 @@ body.modal-open {
 
     margin-bottom: 35px;
 }
-
 
 .hero p:not(.eyebrow) {
     font-family: Arial, sans-serif;
@@ -177,7 +166,6 @@ body.modal-open {
         background 0.2s ease;
 }
 
-
 .primary-button:hover {
     transform: translateY(-3px);
 
@@ -193,13 +181,11 @@ body.modal-open {
     padding: 120px 8%;
 }
 
-
 .section-heading {
     text-align: center;
 
     margin-bottom: 60px;
 }
-
 
 .section-heading h2 {
     font-size: 50px;
@@ -208,7 +194,6 @@ body.modal-open {
 
     margin: 10px 0;
 }
-
 
 .album-grid {
     display: grid;
@@ -256,16 +241,12 @@ body.modal-open {
     font-family: Georgia, serif;
 }
 
-
 .album-card:hover {
     transform: translateY(-8px);
 
     box-shadow:
         0 15px 35px rgba(0, 0, 0, 0.10);
 }
-
-
-/* Album icon */
 
 .album-icon {
     font-size: 65px;
@@ -274,9 +255,6 @@ body.modal-open {
 
     align-self: center;
 }
-
-
-/* Album year */
 
 .album-year {
     font-family: Arial, sans-serif;
@@ -292,7 +270,6 @@ body.modal-open {
     margin-bottom: 10px;
 }
 
-
 .album-card h3 {
     font-size: 25px;
 
@@ -300,7 +277,6 @@ body.modal-open {
 
     margin-bottom: 10px;
 }
-
 
 .album-card p {
     font-family: Arial, sans-serif;
@@ -313,7 +289,6 @@ body.modal-open {
 
     margin-bottom: 20px;
 }
-
 
 .album-link {
     font-family: Arial, sans-serif;
@@ -336,7 +311,6 @@ body.modal-open {
     background: #f8f5ef;
 }
 
-
 .photo-grid {
     display: grid;
 
@@ -345,7 +319,6 @@ body.modal-open {
 
     gap: 30px;
 }
-
 
 .photo-card {
     background: white;
@@ -362,14 +335,12 @@ body.modal-open {
         box-shadow 0.3s ease;
 }
 
-
 .photo-card:hover {
     transform: translateY(-6px);
 
     box-shadow:
         0 15px 35px rgba(0, 0, 0, 0.12);
 }
-
 
 .photo-card img {
     width: 100%;
@@ -381,11 +352,9 @@ body.modal-open {
     display: block;
 }
 
-
 .photo-info {
     padding: 18px;
 }
-
 
 .photo-info h3 {
     margin: 0 0 5px;
@@ -394,7 +363,6 @@ body.modal-open {
 
     font-weight: normal;
 }
-
 
 .photo-info p {
     margin: 0;
@@ -411,13 +379,19 @@ body.modal-open {
    MEMORY MODAL
 ========================================= */
 
+/*
+   The modal starts completely hidden.
+   JavaScript adds the "active" class
+   when the user clicks Explore Memories.
+*/
+
 .memory-modal {
     position: fixed;
 
     inset: 0;
 
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
     background: rgba(41, 39, 34, 0.65);
 
@@ -428,11 +402,13 @@ body.modal-open {
 
     padding: 30px;
 
-    z-index: 1000;
+    z-index: 9999;
 
     opacity: 0;
 
     visibility: hidden;
+
+    pointer-events: none;
 
     transition:
         opacity 0.3s ease,
@@ -440,12 +416,20 @@ body.modal-open {
 }
 
 
-/* Active popup */
+/*
+   ACTIVE POPUP
+
+   This must match:
+
+   memoryModal.classList.add("active");
+*/
 
 .memory-modal.active {
     opacity: 1;
 
     visibility: visible;
+
+    pointer-events: auto;
 }
 
 
@@ -468,10 +452,10 @@ body.modal-open {
 
     padding: 60px;
 
-    border-radius: 8px;
+    border-radius: 12px;
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.25);
+        0 25px 70px rgba(0, 0, 0, 0.30);
 
     transform: translateY(20px);
 
@@ -479,6 +463,10 @@ body.modal-open {
         transform 0.3s ease;
 }
 
+
+/*
+   Move popup into position when active
+*/
 
 .memory-modal.active .memory-modal-content {
     transform: translateY(0);
@@ -526,11 +514,10 @@ body.modal-open {
         transform 0.2s ease;
 }
 
-
 .close-button:hover {
     background: #e5dfd3;
 
-    transform: none;
+    transform: rotate(90deg);
 }
 
 
@@ -544,7 +531,6 @@ body.modal-open {
     margin-bottom: 40px;
 }
 
-
 .modal-heading h2 {
     font-size: 48px;
 
@@ -553,13 +539,14 @@ body.modal-open {
     margin: 10px 0 15px;
 }
 
-
 .modal-heading p:not(.eyebrow) {
     font-family: Arial, sans-serif;
 
     color: #777;
 
     font-size: 14px;
+
+    line-height: 1.6;
 }
 
 
@@ -585,7 +572,6 @@ body.modal-open {
     margin-bottom: 45px;
 }
 
-
 .filter-group {
     display: flex;
 
@@ -593,7 +579,6 @@ body.modal-open {
 
     gap: 8px;
 }
-
 
 .filter-group label {
     font-family: Arial, sans-serif;
@@ -606,7 +591,6 @@ body.modal-open {
 
     color: #666;
 }
-
 
 .filter-group select {
     min-width: 180px;
@@ -630,9 +614,17 @@ body.modal-open {
     outline: none;
 }
 
-
 .filter-group select:focus {
     border-color: #8b6f5a;
+}
+
+
+/* =========================================
+   VIEW MEMORIES BUTTON
+========================================= */
+
+#viewMemoriesButton {
+    white-space: nowrap;
 }
 
 
@@ -644,13 +636,11 @@ body.modal-open {
     width: 100%;
 }
 
-
 .memory-results-heading {
     text-align: center;
 
     margin-bottom: 30px;
 }
-
 
 .memory-results-heading h3 {
     font-size: 35px;
@@ -659,7 +649,6 @@ body.modal-open {
 
     margin-top: 8px;
 }
-
 
 .empty-message {
     text-align: center;
@@ -670,7 +659,6 @@ body.modal-open {
 
     font-family: Arial, sans-serif;
 }
-
 
 .empty-message h3 {
     font-family: Georgia, serif;
@@ -686,6 +674,74 @@ body.modal-open {
 
 
 /* =========================================
+   MODAL PHOTO GRID
+========================================= */
+
+.memory-results .photo-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.memory-results .photo-card {
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.memory-results .photo-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.memory-results .photo-card img {
+    width: 100%;
+
+    height: 240px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.memory-results .photo-info {
+    padding: 18px;
+}
+
+.memory-results .photo-info h3 {
+    margin: 0 0 5px;
+
+    font-size: 18px;
+
+    font-weight: normal;
+}
+
+.memory-results .photo-info p {
+    margin: 0;
+
+    color: #888;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
    ABOUT
 ========================================= */
 
@@ -697,13 +753,11 @@ body.modal-open {
     background: #eae4d8;
 }
 
-
 .about-content {
     max-width: 600px;
 
     margin: 0 auto;
 }
-
 
 .about-section h2 {
     font-size: 45px;
@@ -712,7 +766,6 @@ body.modal-open {
 
     margin: 15px 0 20px;
 }
-
 
 .about-section p:not(.eyebrow) {
     font-family: Arial, sans-serif;
@@ -750,22 +803,23 @@ footer {
         grid-template-columns: 1fr;
     }
 
-
     .album-card {
         min-height: 300px;
     }
-
 
     .photo-grid {
         grid-template-columns:
             repeat(2, 1fr);
     }
 
+    .memory-results .photo-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
 
     .memory-modal-content {
         padding: 50px 35px;
     }
-
 }
 
 
@@ -781,21 +835,20 @@ footer {
         padding: 0 5%;
     }
 
-
     .logo {
         font-size: 20px;
     }
-
 
     .navbar nav {
         gap: 12px;
     }
 
-
     .navbar a {
         font-size: 11px;
     }
 
+
+    /* Hero */
 
     .hero {
         min-height: 80vh;
@@ -803,60 +856,60 @@ footer {
         padding: 60px 20px;
     }
 
-
     .hero h1 {
         font-size: 60px;
     }
 
 
+    /* Albums */
+
     .albums-section {
         padding: 80px 5%;
     }
-
 
     .section-heading h2 {
         font-size: 40px;
     }
 
-
     .album-grid {
         grid-template-columns: 1fr;
     }
-
 
     .album-card {
         min-height: 300px;
     }
 
 
+    /* Gallery */
+
     .gallery-section {
         padding: 80px 5%;
     }
 
-
     .photo-grid {
         grid-template-columns: 1fr;
     }
-
 
     .photo-card img {
         height: 300px;
     }
 
 
-    /* Modal */
+    /* =====================================
+       MODAL
+    ===================================== */
 
     .memory-modal {
         padding: 15px;
     }
 
-
     .memory-modal-content {
         max-height: 95vh;
 
         padding: 50px 20px 30px;
-    }
 
+        border-radius: 10px;
+    }
 
     .modal-heading h2 {
         font-size: 38px;
@@ -873,16 +926,28 @@ footer {
         padding: 20px;
     }
 
+    .filter-group {
+        width: 100%;
+    }
 
     .filter-group select {
         width: 100%;
     }
 
-
     .memory-filters .primary-button {
         width: 100%;
     }
 
+
+    /* Modal photos */
+
+    .memory-results .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-results .photo-card img {
+        height: 280px;
+    }
 
     .memory-results-heading h3 {
         font-size: 28px;
@@ -895,9 +960,7 @@ footer {
         padding: 80px 20px;
     }
 
-
     .about-section h2 {
         font-size: 38px;
     }
-
 }
