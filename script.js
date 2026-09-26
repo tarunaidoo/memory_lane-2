@@ -86,7 +86,7 @@ const monthNames = {
     "Sept25": "September 2025",
     "Oct25": "October 2025",
     "Nov25": "November 2025",
-    "Dev25": "December 2025",
+    "Dec25": "December 2025",
 
     "Jan26": "January 2026",
     "Feb26": "February 2026",
@@ -96,10 +96,7 @@ const monthNames = {
     "Jun26": "June 2026",
     "Jul26": "July 2026",
     "Aug26": "August 2026",
-    "Sep26": "September 2026",
-    "Oct26": "October 2026",
-    "Nov26": "November 2026",
-    "Dec26": "December 2026"
+    "Sep26": "September 2026"
 
 };
 
