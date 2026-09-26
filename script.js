@@ -29,10 +29,26 @@ const monthNames = {
     Jul26: "July",
     Aug26: "August",
     Sep26: "September",
+    Sept25: "September",
     Oct25: "October",
     Nov25: "November",
-    Dec25: "December",
-    Sept25: "September"
+    Dec25: "December"
+};
+
+const monthNumbers = {
+    Jan26: 1,
+    Feb26: 2,
+    Mar26: 3,
+    Apr26: 4,
+    May26: 5,
+    Jun26: 6,
+    Jul26: 7,
+    Aug26: 8,
+    Sep26: 9,
+    Sept25: 9,
+    Oct25: 10,
+    Nov25: 11,
+    Dec25: 12
 };
 
 const exploreButton = document.getElementById("exploreButton");
@@ -47,6 +63,8 @@ const yearSelect = document.getElementById("yearSelect");
 const monthSelect = document.getElementById("monthSelect");
 const viewMemoriesButton = document.getElementById("viewMemoriesButton");
 const memoryResults = document.getElementById("memoryResults");
+
+const mainGallery = document.getElementById("mainGallery");
 
 function openMemoryBrowser() {
     if (!memoryModal) {
@@ -152,6 +170,67 @@ function displayMemories() {
     });
 }
 
+function displayLatestMemories() {
+    if (!mainGallery) {
+        return;
+    }
+
+    const allMemories = [];
+
+    Object.keys(memories).forEach((year) => {
+        Object.keys(memories[year]).forEach((monthFolder) => {
+            memories[year][monthFolder].forEach((photo) => {
+                allMemories.push({
+                    year: Number(year),
+                    monthFolder: monthFolder,
+                    photo: photo
+                });
+            });
+        });
+    });
+
+    allMemories.sort((a, b) => {
+        if (a.year !== b.year) {
+            return b.year - a.year;
+        }
+
+        return (
+            monthNumbers[b.monthFolder] -
+            monthNumbers[a.monthFolder]
+        );
+    });
+
+    const latestMemories = allMemories.slice(0, 3);
+
+    mainGallery.innerHTML = "";
+
+    latestMemories.forEach((memory) => {
+        const photoCard = document.createElement("div");
+
+        photoCard.className = "photo-card";
+
+        const image = document.createElement("img");
+
+        image.src =
+            `./images/${memory.year}/${memory.monthFolder}/${memory.photo}`;
+
+        image.alt =
+            `${monthNames[memory.monthFolder]} ${memory.year} memory`;
+
+        image.loading = "lazy";
+
+        const caption = document.createElement("p");
+
+        caption.textContent =
+            `${monthNames[memory.monthFolder]} ${memory.year}`;
+
+        photoCard.appendChild(image);
+        photoCard.appendChild(caption);
+
+        mainGallery.appendChild(photoCard);
+    });
+}
+
 if (exploreButton) {
     exploreButton.addEventListener("click", openMemoryBrowser);
 }
@@ -210,6 +289,8 @@ document.addEventListener("keydown", (event) => {
 
 updateMonthDropdown();
 
+displayLatestMemories();
+
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
         navigator.serviceWorker.register("./service-worker.js")
@@ -217,7 +298,10 @@ if ("serviceWorker" in navigator) {
                 console.log("Service Worker registered!");
             })
             .catch((error) => {
-                console.error("Service Worker registration failed:", error);
+                console.error(
+                    "Service Worker registration failed:",
+                    error
+                );
             });
     });
 }
