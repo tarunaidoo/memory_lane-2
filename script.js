@@ -1,6 +1,6 @@
 const memories = {
     2025: {
-        "Sept25": ["photo1.png"],
+        "Sep25": ["photo1.png"],
         "Oct25": ["photo2.png"],
         "Nov25": ["photo3.png"],
         "Dec25": ["photo4.png"]
@@ -29,7 +29,7 @@ const monthNames = {
     Jul26: "July",
     Aug26: "August",
     Sep26: "September",
-    Sept25: "September",
+    Sep25: "September",
     Oct25: "October",
     Nov25: "November",
     Dec25: "December"
@@ -45,7 +45,7 @@ const monthNumbers = {
     Jul26: 7,
     Aug26: 8,
     Sep26: 9,
-    Sept25: 9,
+    Sep25: 9,
     Oct25: 10,
     Nov25: 11,
     Dec25: 12
@@ -175,29 +175,39 @@ function displayLatestMemories() {
         return;
     }
 
+    const currentDate = new Date();
+
     const allMemories = [];
 
     Object.keys(memories).forEach((year) => {
         Object.keys(memories[year]).forEach((monthFolder) => {
-            memories[year][monthFolder].forEach((photo) => {
-                allMemories.push({
-                    year: Number(year),
-                    monthFolder: monthFolder,
-                    photo: photo
+            const monthNumber = monthNumbers[monthFolder];
+
+            if (!monthNumber) {
+                return;
+            }
+
+            const memoryDate = new Date(
+                Number(year),
+                monthNumber - 1,
+                1
+            );
+
+            if (memoryDate <= currentDate) {
+                memories[year][monthFolder].forEach((photo) => {
+                    allMemories.push({
+                        year: Number(year),
+                        monthFolder: monthFolder,
+                        photo: photo,
+                        date: memoryDate
+                    });
                 });
-            });
+            }
         });
     });
 
     allMemories.sort((a, b) => {
-        if (a.year !== b.year) {
-            return b.year - a.year;
-        }
-
-        return (
-            monthNumbers[b.monthFolder] -
-            monthNumbers[a.monthFolder]
-        );
+        return b.date - a.date;
     });
 
     const latestMemories = allMemories.slice(0, 3);
