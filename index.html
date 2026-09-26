@@ -3,25 +3,453 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Image Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Lane</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+
+    <meta name="theme-color" content="#292722">
 </head>
 
 <body>
 
-    <h1>Memory Lane Image Test</h1>
+    <!-- ==================== NAVIGATION ==================== -->
 
-    <p>Photo 1:</p>
+    <header class="navbar">
 
-    <img src="./images/photo1.png" alt="Photo 1" width="500">
+        <h1>Memory Lane</h1>
 
-    <p>Photo 2:</p>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#albums">Albums</a>
+            <a href="#gallery">Memories</a>
+            <a href="#about">About</a>
+        </nav>
 
-    <img src="./images/photo2.png" alt="Photo 2" width="500">
+    </header>
 
-    <p>Photo 3:</p>
 
-    <img src="./images/photo3.png" alt="Photo 3" width="500">
-    <img src="./images/photo4.png" alt="Photo 4" width="500">
+    <main>
+
+        <!-- ==================== HERO SECTION ==================== -->
+
+        <section id="home" class="hero">
+
+            <div class="hero-content">
+
+                <p class="small-title">
+                    A COLLECTION OF
+                </p>
+
+                <h2>
+                    Beautiful<br>Memories
+                </h2>
+
+                <p class="description">
+                    The little moments, adventures and people
+                    worth remembering.
+                </p>
+
+                <button id="exploreButton">
+                    Explore Memories
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== ALBUMS SECTION ==================== -->
+
+        <section id="albums" class="albums">
+
+            <p class="small-title">
+                EXPLORE
+            </p>
+
+            <h2>
+                My Albums
+            </h2>
+
+
+            <div class="album-grid">
+
+                <!-- 2026 Album -->
+                <div class="album-card">
+
+                    <div class="album-image">
+                        📸
+                    </div>
+
+                    <h3>
+                        2026
+                    </h3>
+
+                    <p>
+                        Memories from 2026
+                    </p>
+
+                </div>
+
+
+                <!-- Adventures Album -->
+                <div class="album-card">
+
+                    <div class="album-image">
+                        ✈️
+                    </div>
+
+                    <h3>
+                        Adventures
+                    </h3>
+
+                    <p>
+                        Places I've been
+                    </p>
+
+                </div>
+
+
+                <!-- Special Moments Album -->
+                <div class="album-card">
+
+                    <div class="album-image">
+                        ❤️
+                    </div>
+
+                    <h3>
+                        Special Moments
+                    </h3>
+
+                    <p>
+                        Moments worth remembering
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== PHOTO GALLERY ==================== -->
+
+        <section id="gallery" class="gallery-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    YOUR MEMORIES
+                </p>
+
+                <h2>
+                    Memory Lane
+                </h2>
+
+                <p>
+                    Little moments worth remembering.
+                </p>
+
+            </div>
+
+
+            <div class="photo-grid">
+
+
+                <!-- PHOTO 1 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo1.png"
+                        alt="A beautiful memory"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            A Beautiful Day
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 2 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo2.png"
+                        alt="Memory 2"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            A Special Moment
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 3 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo3.png"
+                        alt="Memory 3"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            Another Memory
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 4 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo4.png"
+                        alt="Memory 4"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            A Day To Remember
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 5 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo5.png"
+                        alt="Memory 5"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            Little Moments
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 6 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo6.png"
+                        alt="Memory 6"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            Good Times
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 7 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo7.png"
+                        alt="Memory 7"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            A Happy Memory
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 8 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo8.png"
+                        alt="Memory 8"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            One To Remember
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 9 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo9.png"
+                        alt="Memory 9"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            Beautiful Moments
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 10 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo10.png"
+                        alt="Memory 10"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            Another Beautiful Day
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 11 -->
+                <div class="photo-card">
+
+                    <img
+                        src="./images/photo11.png"
+                        alt="Memory 11"
+                    >
+
+                    <div class="photo-info">
+
+                        <h3>
+                            A Memory To Keep
+                        </h3>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== ABOUT SECTION ==================== -->
+
+        <section id="about" class="about">
+
+            <h2>
+                Why Memory Lane?
+            </h2>
+
+            <p>
+                A digital scrapbook for keeping the moments
+                that matter most.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer>
+
+        <p>
+            Made with ♥
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="./script.js"></script>
 
 </body>
 
