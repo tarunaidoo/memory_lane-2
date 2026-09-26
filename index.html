@@ -7,22 +7,21 @@
 
     <title>Memory Lane</title>
 
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="./style.css">
-
-    <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
-
-    <meta name="theme-color" content="#292722">
 </head>
 
 <body>
 
-    <!-- ==================== NAVIGATION ==================== -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
     <header class="navbar">
 
-        <h1>Memory Lane</h1>
+        <div class="logo">
+            Memory Lane
+        </div>
 
         <nav>
             <a href="#home">Home</a>
@@ -34,394 +33,183 @@
     </header>
 
 
-    <main>
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
 
-        <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="hero">
 
-        <section id="home" class="hero">
+        <div class="hero-content">
 
-            <div class="hero-content">
+            <p class="eyebrow">
+                A COLLECTION OF
+            </p>
 
-                <p class="small-title">
-                    A COLLECTION OF
-                </p>
+            <h1>
+                Beautiful Memories
+            </h1>
 
-                <h2>
-                    Beautiful<br>Memories
-                </h2>
+            <p>
+                A little place to keep the moments,
+                adventures and memories that matter most.
+            </p>
 
-                <p class="description">
-                    The little moments, adventures and people
-                    worth remembering.
-                </p>
+            <button id="exploreButton" class="primary-button">
+                Explore Memories
+            </button>
 
-                <button id="exploreButton">
-                    Explore Memories
-                </button>
+        </div>
 
-            </div>
-
-        </section>
+    </section>
 
 
-        <!-- ==================== ALBUMS SECTION ==================== -->
+    <!-- =========================
+         ALBUMS
+    ========================== -->
 
-        <section id="albums" class="albums">
+    <section id="albums" class="albums-section">
 
-            <p class="small-title">
-                EXPLORE
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                BROWSE
             </p>
 
             <h2>
                 My Albums
             </h2>
 
+        </div>
 
-            <div class="album-grid">
 
-                <!-- 2026 Album -->
-                <div class="album-card">
+        <div class="album-grid">
 
-                    <div class="album-image">
-                        📸
-                    </div>
+            <!-- 2026 -->
 
-                    <h3>
-                        2026
-                    </h3>
+            <button class="album-card" onclick="openMemoryBrowser()">
 
-                    <p>
-                        Memories from 2026
-                    </p>
-
+                <div class="album-icon">
+                    📸
                 </div>
 
-
-                <!-- Adventures Album -->
-                <div class="album-card">
-
-                    <div class="album-image">
-                        ✈️
-                    </div>
-
-                    <h3>
-                        Adventures
-                    </h3>
-
-                    <p>
-                        Places I've been
-                    </p>
-
+                <div class="album-year">
+                    2026
                 </div>
 
-
-                <!-- Special Moments Album -->
-                <div class="album-card">
-
-                    <div class="album-image">
-                        ❤️
-                    </div>
-
-                    <h3>
-                        Special Moments
-                    </h3>
-
-                    <p>
-                        Moments worth remembering
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================== PHOTO GALLERY ==================== -->
-
-        <section id="gallery" class="gallery-section">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">
-                    YOUR MEMORIES
-                </p>
-
-                <h2>
-                    Memory Lane
-                </h2>
+                <h3>
+                    Memories from 2026
+                </h3>
 
                 <p>
-                    Little moments worth remembering.
+                    Moments captured throughout the year.
                 </p>
 
-            </div>
+                <span class="album-link">
+                    Explore →
+                </span>
+
+            </button>
 
 
-            <div class="photo-grid">
+            <!-- Adventures -->
 
+            <button class="album-card" onclick="openMemoryBrowser()">
 
-                <!-- PHOTO 1 -->
-                <div class="photo-card">
-
-                    <img
-                        src="./images/photo1.png"
-                        alt="A beautiful memory"
-                    >
-
-                    <div class="photo-info">
-
-                        <h3>
-                            A Beautiful Day
-                        </h3>
-
-                        <p>
-                            2026
-                        </p>
-
-                    </div>
-
+                <div class="album-icon">
+                    ✈️
                 </div>
 
-
-                <!-- PHOTO 2 -->
-                <div class="photo-card">
-
-                    <img
-                        src="./images/photo2.png"
-                        alt="Memory 2"
-                    >
-
-                    <div class="photo-info">
-
-                        <h3>
-                            A Special Moment
-                        </h3>
-
-                        <p>
-                            2026
-                        </p>
-
-                    </div>
-
+                <div class="album-year">
+                    ADVENTURES
                 </div>
 
+                <h3>
+                    Places I've Been
+                </h3>
 
-                <!-- PHOTO 3 -->
-                <div class="photo-card">
+                <p>
+                    Little adventures and places worth remembering.
+                </p>
 
-                    <img
-                        src="./images/photo3.png"
-                        alt="Memory 3"
-                    >
+                <span class="album-link">
+                    Explore →
+                </span>
 
-                    <div class="photo-info">
+            </button>
 
-                        <h3>
-                            Another Memory
-                        </h3>
 
-                        <p>
-                            2026
-                        </p>
+            <!-- Special Moments -->
 
-                    </div>
+            <button class="album-card" onclick="openMemoryBrowser()">
 
+                <div class="album-icon">
+                    ❤️
                 </div>
 
-
-                <!-- PHOTO 4 -->
-                <div class="photo-card">
-
-                    <img
-                        src="./images/photo4.png"
-                        alt="Memory 4"
-                    >
-
-                    <div class="photo-info">
-
-                        <h3>
-                            A Day To Remember
-                        </h3>
-
-                        <p>
-                            2026
-                        </p>
-
-                    </div>
-
+                <div class="album-year">
+                    SPECIAL MOMENTS
                 </div>
 
+                <h3>
+                    Moments Worth Remembering
+                </h3>
 
-                <!-- PHOTO 5 -->
-                <div class="photo-card">
+                <p>
+                    The people and moments that mean the most.
+                </p>
 
-                    <img
-                        src="./images/photo5.png"
-                        alt="Memory 5"
-                    >
+                <span class="album-link">
+                    Explore →
+                </span>
 
-                    <div class="photo-info">
+            </button>
 
-                        <h3>
-                            Little Moments
-                        </h3>
+        </div>
 
-                        <p>
-                            2026
-                        </p>
-
-                    </div>
-
-                </div>
+    </section>
 
 
-                <!-- PHOTO 6 -->
-                <div class="photo-card">
+    <!-- =========================
+         MEMORY GALLERY
+    ========================== -->
 
-                    <img
-                        src="./images/photo6.png"
-                        alt="Memory 6"
-                    >
+    <section id="gallery" class="gallery-section">
 
-                    <div class="photo-info">
+        <div class="section-heading">
 
-                        <h3>
-                            Good Times
-                        </h3>
+            <p class="eyebrow">
+                MEMORIES
+            </p>
 
-                        <p>
-                            2026
-                        </p>
+            <h2>
+                Latest Moments
+            </h2>
 
-                    </div>
-
-                </div>
+        </div>
 
 
-                <!-- PHOTO 7 -->
-                <div class="photo-card">
+        <div class="photo-grid" id="mainGallery">
 
-                    <img
-                        src="./images/photo7.png"
-                        alt="Memory 7"
-                    >
+            <!--
+                The gallery will be populated by JavaScript.
+            -->
 
-                    <div class="photo-info">
+        </div>
 
-                        <h3>
-                            A Happy Memory
-                        </h3>
-
-                        <p>
-                            2026
-                        </p>
-
-                    </div>
-
-                </div>
+    </section>
 
 
-                <!-- PHOTO 8 -->
-                <div class="photo-card">
+    <!-- =========================
+         ABOUT
+    ========================== -->
 
-                    <img
-                        src="./images/photo8.png"
-                        alt="Memory 8"
-                    >
+    <section id="about" class="about-section">
 
-                    <div class="photo-info">
+        <div class="about-content">
 
-                        <h3>
-                            One To Remember
-                        </h3>
-
-                        <p>
-                            2026
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PHOTO 9 -->
-                <div class="photo-card">
-
-                    <img
-                        src="./images/photo9.png"
-                        alt="Memory 9"
-                    >
-
-                    <div class="photo-info">
-
-                        <h3>
-                            Beautiful Moments
-                        </h3>
-
-                        <p>
-                            2026
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PHOTO 10 -->
-                <div class="photo-card">
-
-                    <img
-                        src="./images/photo10.png"
-                        alt="Memory 10"
-                    >
-
-                    <div class="photo-info">
-
-                        <h3>
-                            Another Beautiful Day
-                        </h3>
-
-                        <p>
-                            2026
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PHOTO 11 -->
-                <div class="photo-card">
-
-                    <img
-                        src="./images/photo11.png"
-                        alt="Memory 11"
-                    >
-
-                    <div class="photo-info">
-
-                        <h3>
-                            A Memory To Keep
-                        </h3>
-
-                        <p>
-                            2026
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================== ABOUT SECTION ==================== -->
-
-        <section id="about" class="about">
+            <p class="eyebrow">
+                ABOUT
+            </p>
 
             <h2>
                 Why Memory Lane?
@@ -432,12 +220,168 @@
                 that matter most.
             </p>
 
-        </section>
+        </div>
 
-    </main>
+    </section>
 
 
-    <!-- ==================== FOOTER ==================== -->
+    <!-- =========================
+         MEMORY BROWSER POPUP
+    ========================== -->
+
+    <div id="memoryModal" class="memory-modal">
+
+        <div class="memory-modal-content">
+
+            <!-- Close button -->
+
+            <button
+                class="close-button"
+                onclick="closeMemoryBrowser()">
+                &times;
+            </button>
+
+
+            <!-- Heading -->
+
+            <div class="modal-heading">
+
+                <p class="eyebrow">
+                    EXPLORE
+                </p>
+
+                <h2>
+                    Memory Lane
+                </h2>
+
+                <p>
+                    Choose a year and month to explore your memories.
+                </p>
+
+            </div>
+
+
+            <!-- Filters -->
+
+            <div class="memory-filters">
+
+                <!-- Year -->
+
+                <div class="filter-group">
+
+                    <label for="yearSelect">
+                        Year
+                    </label>
+
+                    <select id="yearSelect">
+
+                        <option value="2025">
+                            2025
+                        </option>
+
+                        <option value="2026" selected>
+                            2026
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Month -->
+
+                <div class="filter-group">
+
+                    <label for="monthSelect">
+                        Month
+                    </label>
+
+                    <select id="monthSelect">
+
+                        <option value="January">
+                            January
+                        </option>
+
+                        <option value="February">
+                            February
+                        </option>
+
+                        <option value="March">
+                            March
+                        </option>
+
+                        <option value="April">
+                            April
+                        </option>
+
+                        <option value="May">
+                            May
+                        </option>
+
+                        <option value="June">
+                            June
+                        </option>
+
+                        <option value="July">
+                            July
+                        </option>
+
+                        <option value="August">
+                            August
+                        </option>
+
+                        <option value="September" selected>
+                            September
+                        </option>
+
+                        <option value="October">
+                            October
+                        </option>
+
+                        <option value="November">
+                            November
+                        </option>
+
+                        <option value="December">
+                            December
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- View button -->
+
+                <button
+                    id="viewMemoriesButton"
+                    class="primary-button">
+                    View Memories
+                </button>
+
+            </div>
+
+
+            <!-- Selected memories -->
+
+            <div
+                id="memoryResults"
+                class="memory-results">
+
+                <p class="empty-message">
+                    Select a year and month to view memories.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
 
@@ -448,7 +392,10 @@
     </footer>
 
 
-    <!-- JavaScript -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
     <script src="./script.js"></script>
 
 </body>
