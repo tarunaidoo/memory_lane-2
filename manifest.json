@@ -1,0 +1,11 @@
+{
+    "id": "./",
+    "name": "Memory Lane",
+    "short_name": "Memories",
+    "description": "A personal collection of beautiful memories.",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#f8f5ef",
+    "theme_color": "#292722",
+    "orientation": "portrait-primary"
+}
