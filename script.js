@@ -24,23 +24,19 @@ const memories = {
     "2025": {
 
         "Sept25": [
-            "photo1.png",
-            "photo2.png",
-            "photo3.png"
+            "photo1.png"
         ],
 
         "Oct25": [
-            "photo1.png",
             "photo2.png"
         ],
 
         "Nov25": [
-            "photo1.png"
+            "photo3.png"
         ],
 
-        "Dev25": [
-            "photo1.png",
-            "photo2.png"
+        "Dec25": [
+            "photo4.png"
         ]
 
     },
@@ -48,30 +44,42 @@ const memories = {
 
     "2026": {
 
-        "Jan26": [],
+        "Jan26": [
+            "photo10.png"
+        ],
 
-        "Feb26": [],
+        "Feb26": [
+            "photo11.png"
+        ],
 
-        "Mar26": [],
+        "Mar26": [
+            "photo7.png"
+        ],
 
-        "Apr26": [],
+        "Apr26": [
+            "photo11.png"
+        ],
 
-        "May26": [],
+        "May26": [
+            "photo6.png"
+        ],
 
-        "Jun26": [],
+        "Jun26": [
+            "photo8.png"
+        ],
 
-        "Jul26": [],
+        "Jul26": [
+            "photo9.png"
+        ],
 
-        "Aug26": [],
+        "Aug26": [
+            "photo11.png"
+        ],
 
-        "Sep26": [],
 
-        "Oct26": [],
-
-        "Nov26": [],
-
-        "Dec26": []
-
+        "Sep26": [
+            "photo5.png"
+        ]
     }
 
 };
