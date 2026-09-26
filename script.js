@@ -8,9 +8,7 @@ const exploreButton =
 
 exploreButton.addEventListener("click", function () {
 
-    document.getElementById("albums").scrollIntoView({
-        behavior: "smooth"
-    });
+    openMemoryBrowser();
 
 });
 
