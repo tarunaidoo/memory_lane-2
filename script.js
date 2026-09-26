@@ -1,3 +1,4 @@
+console.log("NEW SCRIPT.JS IS RUNNING");
 /* =========================================
    EXPLORE MEMORIES BUTTON
 ========================================= */
