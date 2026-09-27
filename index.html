@@ -6,18 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Memory Lane</title>
+    <title>Memory Lane</title>
 
-<link rel="stylesheet" href="./style.css">
-<link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="manifest" href="./manifest.json">
 
 </head>
 
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================== -->
 
 <header class="navbar">
 
@@ -35,9 +32,6 @@
 </header>
 
 
-<!-- =========================
-     HERO SECTION
-========================== -->
 
 <section id="home" class="hero">
 
@@ -70,9 +64,6 @@
 </section>
 
 
-<!-- =========================
-     ALBUMS
-========================== -->
 
 <section id="albums" class="albums-section">
 
@@ -86,127 +77,86 @@
             My Albums
         </h2>
 
+        <p class="section-description">
+            Choose a year to explore the memories captured along the way.
+        </p>
+
     </div>
 
 
-    <div class="album-grid">
+    <div
+        class="album-grid"
+        id="albumGrid">
+    </div>
 
 
-        <!-- =========================
-             2026 ALBUM
-        ========================== -->
+    <div
+        id="monthSection"
+        class="month-section"
+        hidden>
 
-        <button
-            type="button"
-            id="album2026"
-            class="album-card">
+        <div class="month-header">
 
-            <div class="album-icon">
-                📸
+            <div>
+
+                <p
+                    class="eyebrow"
+                    id="selectedYearLabel">
+                    MEMORIES
+                </p>
+
+                <h3 id="selectedYearTitle">
+                    Choose a month
+                </h3>
+
             </div>
 
-            <div class="album-year">
-                2026
-            </div>
+            <button
+                type="button"
+                id="backToYearsButton"
+                class="text-button">
 
-            <h3>
-                Memories from 2026
-            </h3>
+                ← Back to years
 
-            <p>
-                Moments captured throughout the year.
-            </p>
+            </button>
 
-            <span class="album-link">
-                Explore →
-            </span>
-
-        </button>
+        </div>
 
 
-        <!-- =========================
-             ADVENTURES
-        ========================== -->
-
-        <button
-            type="button"
-            id="albumAdventures"
-            class="album-card">
-
-            <div class="album-icon">
-                ✈️
-            </div>
-
-            <div class="album-year">
-                ADVENTURES
-            </div>
-
-            <h3>
-                Places I've Been
-            </h3>
-
-            <p>
-                Little adventures and places worth remembering.
-            </p>
-
-            <span class="album-link">
-                Explore →
-            </span>
-
-        </button>
-
-
-        <!-- =========================
-             SPECIAL MOMENTS
-        ========================== -->
-
-        <button
-            type="button"
-            id="albumSpecial"
-            class="album-card">
-
-            <div class="album-icon">
-                ❤️
-            </div>
-
-            <div class="album-year">
-                SPECIAL MOMENTS
-            </div>
-
-            <h3>
-                Moments Worth Remembering
-            </h3>
-
-            <p>
-                The people and moments that mean the most.
-            </p>
-
-            <span class="album-link">
-                Explore →
-            </span>
-
-        </button>
+        <div
+            id="monthList"
+            class="month-list">
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     MAIN GALLERY
-========================== -->
 
 <section id="gallery" class="gallery-section">
 
     <div class="section-heading">
 
-        <p class="eyebrow">
+        <p
+            class="eyebrow"
+            id="memoriesEyebrow">
+
             MEMORIES
+
         </p>
 
-        <h2>
+        <h2 id="memoriesTitle">
             Latest Moments
         </h2>
+
+        <p
+            id="memoriesDescription"
+            class="section-description">
+
+            The latest moments captured on Memory Lane.
+
+        </p>
 
     </div>
 
@@ -214,146 +164,11 @@
     <div
         class="photo-grid"
         id="mainGallery">
-
-        <!-- Photos can be added here later -->
-
     </div>
 
 </section>
 
 
-<!-- =========================
-     MEMORY BROWSER POPUP
-========================== -->
-
-<div
-    id="memoryModal"
-    class="memory-modal"
-    aria-hidden="true">
-
-    <div
-        class="memory-modal-content"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="memoryModalTitle">
-
-
-        <!-- =========================
-             CLOSE BUTTON
-        ========================== -->
-
-        <button
-            type="button"
-            class="close-button"
-            id="closeMemoryButton"
-            aria-label="Close memory browser">
-
-            &times;
-
-        </button>
-
-
-        <!-- =========================
-             POPUP HEADING
-        ========================== -->
-
-        <div class="modal-heading">
-
-            <p class="eyebrow">
-                EXPLORE
-            </p>
-
-            <h2 id="memoryModalTitle">
-                Memory Lane
-            </h2>
-
-            <p>
-                Choose a year and month to explore your memories.
-            </p>
-
-        </div>
-
-
-        <!-- =========================
-             FILTERS
-        ========================== -->
-
-        <div class="memory-filters">
-
-            <!-- YEAR -->
-
-            <div class="filter-group">
-
-                <label for="yearSelect">
-                    Year
-                </label>
-
-                <select id="yearSelect">
-
-                    <option value="2025">
-                        2025
-                    </option>
-
-                    <option value="2026" selected>
-                        2026
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <!-- MONTH -->
-
-            <div class="filter-group">
-
-                <label for="monthSelect">
-                    Month
-                </label>
-
-                <select id="monthSelect">
-                    <!-- JavaScript fills this dropdown -->
-                </select>
-
-            </div>
-
-
-            <!-- VIEW MEMORIES -->
-
-            <button
-                type="button"
-                id="viewMemoriesButton"
-                class="primary-button">
-
-                View Memories
-
-            </button>
-
-        </div>
-
-
-        <!-- =========================
-             MEMORY RESULTS
-        ========================== -->
-
-        <div
-            id="memoryResults"
-            class="memory-results">
-
-            <p class="empty-message">
-                Select a year and month to view memories.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     ABOUT
-========================== -->
 
 <section id="about" class="about-section">
 
@@ -377,9 +192,6 @@
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================== -->
 
 <footer>
 
@@ -390,9 +202,6 @@
 </footer>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================== -->
 
 <script src="./script.js"></script>
 
