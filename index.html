@@ -1,167 +1,400 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Memory Lane</title>
+<title>Memory Lane</title>
 
-    <link rel="stylesheet" href="./style.css">
-    <link rel="manifest" href="./manifest.json">
+<link rel="stylesheet" href="./style.css">
+<link rel="manifest" href="./manifest.json">
 
-    <meta name="theme-color" content="#f8f5ef">
-    <meta name="description" content="A collection of memories worth remembering.">
 </head>
 
 <body>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Memory Lane</a>
+<!-- =========================
+     NAVIGATION
+========================== -->
 
-            <a href="#albums" class="nav-link">
-                Explore
-            </a>
-        </div>
-    </header>
+<header class="navbar">
 
+    <div class="logo">
+        Memory Lane
+    </div>
 
-    <main>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#albums">Albums</a>
+        <a href="#gallery">Memories</a>
+        <a href="#about">About</a>
+    </nav>
 
-        <section class="hero">
-            <div class="hero-content">
-
-                <p class="eyebrow">A COLLECTION OF MOMENTS</p>
-
-                <h1>
-                    Memories worth
-                    <span>remembering.</span>
-                </h1>
-
-                <p class="hero-description">
-                    A little place to keep the moments that matter,
-                    one memory at a time.
-                </p>
-
-                <button
-                    id="exploreButton"
-                    class="primary-button"
-                    type="button">
-                    Explore Memories
-                </button>
-
-            </div>
-        </section>
+</header>
 
 
-        <section class="albums-section" id="albums">
+<!-- =========================
+     HERO SECTION
+========================== -->
 
-            <div class="section-heading">
+<section id="home" class="hero">
 
-                <div>
-                    <p class="eyebrow">MEMORY LANE</p>
+    <div class="hero-content">
 
-                    <h2>Albums</h2>
-                </div>
-
-                <p class="section-description">
-                    Choose a year to explore the memories from that time.
-                </p>
-
-            </div>
-
-
-            <div
-                class="album-grid"
-                id="albumGrid">
-            </div>
-
-
-            <div
-                class="month-section"
-                id="monthSection"
-                hidden>
-
-                <div class="section-heading month-heading">
-
-                    <div>
-                        <p class="eyebrow" id="selectedYearLabel">
-                            YEAR
-                        </p>
-
-                        <h2 id="selectedYearTitle">
-                            Select a year
-                        </h2>
-                    </div>
-
-                    <button
-                        type="button"
-                        class="text-button"
-                        id="backToYearsButton">
-                        ← Back to years
-                    </button>
-
-                </div>
-
-
-                <div
-                    class="month-list"
-                    id="monthList">
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section
-            class="memories-section"
-            id="memories">
-
-            <div class="section-heading">
-
-                <div>
-                    <p
-                        class="eyebrow"
-                        id="memoriesEyebrow">
-                        LATEST MEMORIES
-                    </p>
-
-                    <h2 id="memoriesTitle">
-                        Latest Memories
-                    </h2>
-                </div>
-
-                <p
-                    class="section-description"
-                    id="memoriesDescription">
-                    The latest moments added to Memory Lane.
-                </p>
-
-            </div>
-
-
-            <div
-                class="photo-grid"
-                id="mainGallery">
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <footer class="footer">
-
-        <p>
-            Made with love · Memory Lane
+        <p class="eyebrow">
+            A COLLECTION OF
         </p>
 
-    </footer>
+        <h1>
+            Beautiful Memories
+        </h1>
+
+        <p>
+            A little place to keep the moments,
+            adventures and memories that matter most.
+        </p>
+
+        <button
+            id="exploreButton"
+            class="primary-button"
+            type="button">
+
+            Explore Memories
+
+        </button>
+
+    </div>
+
+</section>
 
 
-    <script src="./script.js"></script>
+<!-- =========================
+     ALBUMS
+========================== -->
+
+<section id="albums" class="albums-section">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            BROWSE
+        </p>
+
+        <h2>
+            My Albums
+        </h2>
+
+    </div>
+
+
+    <div class="album-grid">
+
+
+        <!-- =========================
+             2026 ALBUM
+        ========================== -->
+
+        <button
+            type="button"
+            id="album2026"
+            class="album-card">
+
+            <div class="album-icon">
+                📸
+            </div>
+
+            <div class="album-year">
+                2026
+            </div>
+
+            <h3>
+                Memories from 2026
+            </h3>
+
+            <p>
+                Moments captured throughout the year.
+            </p>
+
+            <span class="album-link">
+                Explore →
+            </span>
+
+        </button>
+
+
+        <!-- =========================
+             ADVENTURES
+        ========================== -->
+
+        <button
+            type="button"
+            id="albumAdventures"
+            class="album-card">
+
+            <div class="album-icon">
+                ✈️
+            </div>
+
+            <div class="album-year">
+                ADVENTURES
+            </div>
+
+            <h3>
+                Places I've Been
+            </h3>
+
+            <p>
+                Little adventures and places worth remembering.
+            </p>
+
+            <span class="album-link">
+                Explore →
+            </span>
+
+        </button>
+
+
+        <!-- =========================
+             SPECIAL MOMENTS
+        ========================== -->
+
+        <button
+            type="button"
+            id="albumSpecial"
+            class="album-card">
+
+            <div class="album-icon">
+                ❤️
+            </div>
+
+            <div class="album-year">
+                SPECIAL MOMENTS
+            </div>
+
+            <h3>
+                Moments Worth Remembering
+            </h3>
+
+            <p>
+                The people and moments that mean the most.
+            </p>
+
+            <span class="album-link">
+                Explore →
+            </span>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MAIN GALLERY
+========================== -->
+
+<section id="gallery" class="gallery-section">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            MEMORIES
+        </p>
+
+        <h2>
+            Latest Moments
+        </h2>
+
+    </div>
+
+
+    <div
+        class="photo-grid"
+        id="mainGallery">
+
+        <!-- Photos can be added here later -->
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MEMORY BROWSER POPUP
+========================== -->
+
+<div
+    id="memoryModal"
+    class="memory-modal"
+    aria-hidden="true">
+
+    <div
+        class="memory-modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="memoryModalTitle">
+
+
+        <!-- =========================
+             CLOSE BUTTON
+        ========================== -->
+
+        <button
+            type="button"
+            class="close-button"
+            id="closeMemoryButton"
+            aria-label="Close memory browser">
+
+            &times;
+
+        </button>
+
+
+        <!-- =========================
+             POPUP HEADING
+        ========================== -->
+
+        <div class="modal-heading">
+
+            <p class="eyebrow">
+                EXPLORE
+            </p>
+
+            <h2 id="memoryModalTitle">
+                Memory Lane
+            </h2>
+
+            <p>
+                Choose a year and month to explore your memories.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             FILTERS
+        ========================== -->
+
+        <div class="memory-filters">
+
+            <!-- YEAR -->
+
+            <div class="filter-group">
+
+                <label for="yearSelect">
+                    Year
+                </label>
+
+                <select id="yearSelect">
+
+                    <option value="2025">
+                        2025
+                    </option>
+
+                    <option value="2026" selected>
+                        2026
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- MONTH -->
+
+            <div class="filter-group">
+
+                <label for="monthSelect">
+                    Month
+                </label>
+
+                <select id="monthSelect">
+                    <!-- JavaScript fills this dropdown -->
+                </select>
+
+            </div>
+
+
+            <!-- VIEW MEMORIES -->
+
+            <button
+                type="button"
+                id="viewMemoriesButton"
+                class="primary-button">
+
+                View Memories
+
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             MEMORY RESULTS
+        ========================== -->
+
+        <div
+            id="memoryResults"
+            class="memory-results">
+
+            <p class="empty-message">
+                Select a year and month to view memories.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     ABOUT
+========================== -->
+
+<section id="about" class="about-section">
+
+    <div class="about-content">
+
+        <p class="eyebrow">
+            ABOUT
+        </p>
+
+        <h2>
+            Why Memory Lane?
+        </h2>
+
+        <p>
+            A digital scrapbook for keeping the moments
+            that matter most.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <p>
+        Made with ♥
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script src="./script.js"></script>
 
 </body>
 
