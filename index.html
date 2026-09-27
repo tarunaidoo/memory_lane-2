@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -10,150 +11,164 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="manifest" href="./manifest.json">
 
-    <meta name="theme-color" content="#f8f5ef">
-    <meta name="description" content="A collection of memories worth remembering.">
 </head>
 
 <body>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Memory Lane</a>
 
-            <a href="#albums" class="nav-link">
-                Explore
-            </a>
-        </div>
-    </header>
+<header class="navbar">
 
+    <div class="logo">
+        Memory Lane
+    </div>
 
-    <main>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#albums">Albums</a>
+        <a href="#gallery">Memories</a>
+        <a href="#about">About</a>
+    </nav>
 
-        <section class="hero">
-            <div class="hero-content">
-
-                <p class="eyebrow">A COLLECTION OF MOMENTS</p>
-
-                <h1>
-                    Memories worth
-                    <span>remembering.</span>
-                </h1>
-
-                <p class="hero-description">
-                    A little place to keep the moments that matter,
-                    one memory at a time.
-                </p>
-
-                <button
-                    id="exploreButton"
-                    class="primary-button"
-                    type="button">
-                    Explore Memories
-                </button>
-
-            </div>
-        </section>
+</header>
 
 
-        <section class="albums-section" id="albums">
 
-            <div class="section-heading">
+<section id="home" class="hero">
 
-                <div>
-                    <p class="eyebrow">MEMORY LANE</p>
+    <div class="hero-content">
 
-                    <h2>Albums</h2>
-                </div>
+        <p class="eyebrow">
+            A COLLECTION OF
+        </p>
 
-                <p class="section-description">
-                    Choose a year to explore the memories from that time.
-                </p>
+        <h1>
+            Beautiful Memories
+        </h1>
 
-            </div>
+        <p>
+            A little place to keep the moments,
+            adventures and memories that matter most.
+        </p>
 
+        <button
+            id="exploreButton"
+            class="primary-button"
+            type="button">
 
-            <div
-                class="album-grid"
-                id="albumGrid">
-            </div>
+            Explore Memories
 
+        </button>
 
-            <div
-                class="month-section"
-                id="monthSection"
-                hidden>
+    </div>
 
-                <div class="section-heading month-heading">
-
-                    <div>
-                        <p class="eyebrow" id="selectedYearLabel">
-                            YEAR
-                        </p>
-
-                        <h2 id="selectedYearTitle">
-                            Select a year
-                        </h2>
-                    </div>
-
-                    <button
-                        type="button"
-                        class="text-button"
-                        id="backToYearsButton">
-                        ← Back to years
-                    </button>
-
-                </div>
+</section>
 
 
-                <div
-                    class="month-list"
-                    id="monthList">
-                </div>
 
-            </div>
+<section id="albums" class="albums-section">
 
-        </section>
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            BROWSE
+        </p>
+
+        <h2>
+            My Albums
+        </h2>
+
+        <p class="section-description">
+            Choose a year to explore the memories captured along the way.
+        </p>
+
+    </div>
 
 
-        <section
-            class="memories-section"
-            id="memories">
+    <div
+        class="album-grid"
+        id="albumGrid">
+    </div>
 
-            <div class="section-heading">
 
-                <div>
-                    <p
-                        class="eyebrow"
-                        id="memoriesEyebrow">
-                        LATEST MEMORIES
-                    </p>
+    <div
+        id="monthSection"
+        class="month-section"
+        hidden>
 
-                    <h2 id="memoriesTitle">
-                        Latest Memories
-                    </h2>
-                </div>
+        <div class="month-header">
+
+            <div>
 
                 <p
-                    class="section-description"
-                    id="memoriesDescription">
-                    The latest moments added to Memory Lane.
+                    class="eyebrow"
+                    id="selectedYearLabel">
+                    MEMORIES
                 </p>
 
+                <h3 id="selectedYearTitle">
+                    Choose a month
+                </h3>
+
             </div>
 
+            <button
+                type="button"
+                id="backToYearsButton"
+                class="text-button">
 
-            <div
-                class="photo-grid"
-                id="mainGallery">
-            </div>
+                ← Back to years
 
-        </section>
+            </button>
 
-    </main>
+        </div>
 
-<!-- =========================
-     ABOUT
-========================== -->
+
+        <div
+            id="monthList"
+            class="month-list">
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section id="gallery" class="gallery-section">
+
+    <div class="section-heading">
+
+        <p
+            class="eyebrow"
+            id="memoriesEyebrow">
+
+            MEMORIES
+
+        </p>
+
+        <h2 id="memoriesTitle">
+            Latest Moments
+        </h2>
+
+        <p
+            id="memoriesDescription"
+            class="section-description">
+
+            The latest moments captured on Memory Lane.
+
+        </p>
+
+    </div>
+
+
+    <div
+        class="photo-grid"
+        id="mainGallery">
+    </div>
+
+</section>
+
+
 
 <section id="about" class="about-section">
 
@@ -176,9 +191,7 @@
 
 </section>
 
-<!-- =========================
-     FOOTER
-========================== -->
+
 
 <footer>
 
@@ -189,7 +202,8 @@
 </footer>
 
 
-    <script src="./script.js"></script>
+
+<script src="./script.js"></script>
 
 </body>
 
