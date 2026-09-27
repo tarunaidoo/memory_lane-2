@@ -23,6 +23,7 @@ const memories = {
     }
 };
 
+
 const monthNames = {
     Jan26: "January",
     Feb26: "February",
@@ -38,6 +39,7 @@ const monthNames = {
     Nov25: "November",
     Dec25: "December"
 };
+
 
 const monthNumbers = {
     Jan26: 1,
@@ -55,173 +57,357 @@ const monthNumbers = {
     Dec25: 12
 };
 
-const exploreButton = document.getElementById("exploreButton");
-const album2026 = document.getElementById("album2026");
-const albumAdventures = document.getElementById("albumAdventures");
-const albumSpecial = document.getElementById("albumSpecial");
 
-const closeMemoryButton = document.getElementById("closeMemoryButton");
-const memoryModal = document.getElementById("memoryModal");
+const exploreButton =
+    document.getElementById("exploreButton");
 
-const yearSelect = document.getElementById("yearSelect");
-const monthSelect = document.getElementById("monthSelect");
-const viewMemoriesButton = document.getElementById("viewMemoriesButton");
-const memoryResults = document.getElementById("memoryResults");
+const albumGrid =
+    document.getElementById("albumGrid");
 
-const mainGallery = document.getElementById("mainGallery");
+const monthSection =
+    document.getElementById("monthSection");
 
-function openMemoryBrowser() {
-    if (!memoryModal) {
-        console.error("Memory modal was not found.");
+const monthList =
+    document.getElementById("monthList");
+
+const selectedYearLabel =
+    document.getElementById("selectedYearLabel");
+
+const selectedYearTitle =
+    document.getElementById("selectedYearTitle");
+
+const backToYearsButton =
+    document.getElementById("backToYearsButton");
+
+const mainGallery =
+    document.getElementById("mainGallery");
+
+const memoriesEyebrow =
+    document.getElementById("memoriesEyebrow");
+
+const memoriesTitle =
+    document.getElementById("memoriesTitle");
+
+const memoriesDescription =
+    document.getElementById("memoriesDescription");
+
+
+let selectedYear = null;
+let selectedMonth = null;
+
+
+function scrollToAlbums() {
+    const albumsSection =
+        document.getElementById("albums");
+
+    if (!albumsSection) {
         return;
     }
 
-    memoryModal.classList.add("active");
-    memoryModal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
-
-    updateMonthDropdown();
-}
-
-function closeMemoryBrowser() {
-    if (!memoryModal) {
-        return;
-    }
-
-    memoryModal.classList.remove("active");
-    memoryModal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
-}
-
-function updateMonthDropdown() {
-    if (!yearSelect || !monthSelect) {
-        return;
-    }
-
-    const selectedYear = yearSelect.value;
-    const yearMemories = memories[selectedYear];
-
-    monthSelect.innerHTML = "";
-
-    if (!yearMemories) {
-        return;
-    }
-
-    Object.keys(yearMemories).forEach((monthFolder) => {
-        const option = document.createElement("option");
-
-        option.value = monthFolder;
-        option.textContent = monthNames[monthFolder] || monthFolder;
-
-        monthSelect.appendChild(option);
+    albumsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
     });
 }
 
-function displayMemories() {
-    if (!yearSelect || !monthSelect || !memoryResults) {
+
+function createYearCards() {
+    if (!albumGrid) {
         return;
     }
 
-    const year = yearSelect.value;
-    const monthFolder = monthSelect.value;
+    albumGrid.innerHTML = "";
 
-    const photos = memories[year]?.[monthFolder];
+    const years = Object.keys(memories)
+        .sort((a, b) => Number(b) - Number(a));
 
-    memoryResults.innerHTML = "";
+    years.forEach((year) => {
+
+        const card =
+            document.createElement("button");
+
+        card.type = "button";
+        card.className = "album-card";
+
+        const content =
+            document.createElement("div");
+
+        content.className =
+            "album-card-content";
+
+        const eyebrow =
+            document.createElement("p");
+
+        eyebrow.className = "eyebrow";
+        eyebrow.textContent = "MEMORIES";
+
+        const title =
+            document.createElement("h3");
+
+        title.textContent = year;
+
+        const description =
+            document.createElement("p");
+
+        const monthCount =
+            Object.keys(memories[year]).length;
+
+        description.textContent =
+            `${monthCount} ${monthCount === 1 ? "month" : "months"} of memories`;
+
+        content.appendChild(eyebrow);
+        content.appendChild(title);
+        content.appendChild(description);
+
+        card.appendChild(content);
+
+        card.addEventListener("click", () => {
+            selectYear(year);
+        });
+
+        albumGrid.appendChild(card);
+    });
+}
+
+
+function selectYear(year) {
+
+    selectedYear = year;
+    selectedMonth = null;
+
+    if (!monthSection) {
+        return;
+    }
+
+    monthSection.hidden = false;
+
+    if (selectedYearLabel) {
+        selectedYearLabel.textContent =
+            `${year} MEMORIES`;
+    }
+
+    if (selectedYearTitle) {
+        selectedYearTitle.textContent =
+            `Choose a month`;
+    }
+
+    createMonthButtons(year);
+
+    displayLatestMemories();
+
+    monthSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+function createMonthButtons(year) {
+
+    if (!monthList) {
+        return;
+    }
+
+    monthList.innerHTML = "";
+
+    const months =
+        Object.keys(memories[year] || {});
+
+    months.sort((a, b) => {
+        return monthNumbers[a] - monthNumbers[b];
+    });
+
+    months.forEach((monthFolder) => {
+
+        const button =
+            document.createElement("button");
+
+        button.type = "button";
+        button.className = "month-button";
+
+        button.textContent =
+            monthNames[monthFolder] || monthFolder;
+
+        button.addEventListener("click", () => {
+            selectMonth(year, monthFolder);
+        });
+
+        monthList.appendChild(button);
+    });
+}
+
+
+function selectMonth(year, monthFolder) {
+
+    selectedYear = year;
+    selectedMonth = monthFolder;
+
+    const buttons =
+        document.querySelectorAll(".month-button");
+
+    buttons.forEach((button) => {
+        button.classList.remove("active");
+
+        if (
+            button.textContent ===
+            monthNames[monthFolder]
+        ) {
+            button.classList.add("active");
+        }
+    });
+
+    displayMemories(year, monthFolder);
+
+    const memoriesSection =
+        document.getElementById("memories");
+
+    if (memoriesSection) {
+        memoriesSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+
+function displayMemories(year, monthFolder) {
+
+    if (!mainGallery) {
+        return;
+    }
+
+    const photos =
+        memories[year]?.[monthFolder];
+
+    mainGallery.innerHTML = "";
 
     if (!photos || photos.length === 0) {
-        const message = document.createElement("p");
 
-        message.className = "empty-message";
-        message.textContent = "No memories found for this month.";
+        const message =
+            document.createElement("p");
 
-        memoryResults.appendChild(message);
+        message.className =
+            "empty-message";
+
+        message.textContent =
+            "No memories found for this month.";
+
+        mainGallery.appendChild(message);
 
         return;
     }
 
-    const heading = document.createElement("div");
+    if (memoriesEyebrow) {
+        memoriesEyebrow.textContent =
+            "MEMORIES";
+    }
 
-    heading.className = "memory-results-heading";
+    if (memoriesTitle) {
+        memoriesTitle.textContent =
+            `${monthNames[monthFolder]} ${year}`;
+    }
 
-    heading.innerHTML = `
-        <p class="eyebrow">MEMORIES</p>
-        <h3>${monthNames[monthFolder] || monthFolder} ${year}</h3>
-    `;
-
-    memoryResults.appendChild(heading);
-
-    const photoGrid = document.createElement("div");
-
-    photoGrid.className = "photo-grid";
+    if (memoriesDescription) {
+        memoriesDescription.textContent =
+            `${photos.length} ${
+                photos.length === 1
+                    ? "memory"
+                    : "memories"
+            } from this month.`;
+    }
 
     photos.forEach((photo) => {
-        const photoCard = document.createElement("div");
 
-        photoCard.className = "photo-card";
+        const photoCard =
+            document.createElement("div");
 
-        const image = document.createElement("img");
+        photoCard.className =
+            "photo-card";
+
+        const image =
+            document.createElement("img");
 
         image.src =
             `./images/${year}/${monthFolder}/${photo}`;
 
         image.alt =
-            `${monthNames[monthFolder] || monthFolder} ${year} memory`;
+            `${monthNames[monthFolder]} ${year} memory`;
 
         image.loading = "lazy";
 
         image.addEventListener("error", () => {
+
             image.style.display = "none";
 
-            const errorMessage = document.createElement("p");
+            const errorMessage =
+                document.createElement("p");
 
-            errorMessage.className = "empty-message";
+            errorMessage.className =
+                "empty-message";
+
             errorMessage.textContent =
                 `Unable to load ${photo}.`;
 
             photoCard.appendChild(errorMessage);
         });
 
+        const caption =
+            document.createElement("p");
+
+        caption.textContent =
+            `${monthNames[monthFolder]} ${year}`;
+
         photoCard.appendChild(image);
+        photoCard.appendChild(caption);
 
-        photoGrid.appendChild(photoCard);
+        mainGallery.appendChild(photoCard);
     });
-
-    memoryResults.appendChild(photoGrid);
 }
 
+
 function displayLatestMemories() {
+
     if (!mainGallery) {
         return;
     }
 
-    const currentDate = new Date();
+    const currentDate =
+        new Date();
 
     const allMemories = [];
 
     Object.keys(memories).forEach((year) => {
+
         Object.keys(memories[year]).forEach((monthFolder) => {
-            const monthNumber = monthNumbers[monthFolder];
+
+            const monthNumber =
+                monthNumbers[monthFolder];
 
             if (!monthNumber) {
                 return;
             }
 
-            const memoryDate = new Date(
-                Number(year),
-                monthNumber - 1,
-                1
-            );
+            const memoryDate =
+                new Date(
+                    Number(year),
+                    monthNumber - 1,
+                    1
+                );
 
             if (memoryDate <= currentDate) {
-                memories[year][monthFolder].forEach((photo) => {
-                    allMemories.push({
-                        year: Number(year),
-                        monthFolder: monthFolder,
-                        photo: photo,
-                        date: memoryDate
-                    });
-                });
+
+                memories[year][monthFolder].forEach(
+                    (photo) => {
+
+                        allMemories.push({
+                            year: Number(year),
+                            monthFolder: monthFolder,
+                            photo: photo,
+                            date: memoryDate
+                        });
+
+                    }
+                );
             }
         });
     });
@@ -230,16 +416,36 @@ function displayLatestMemories() {
         return b.date - a.date;
     });
 
-    const latestMemories = allMemories.slice(0, 3);
+    const latestMemories =
+        allMemories.slice(0, 3);
 
     mainGallery.innerHTML = "";
 
+    if (memoriesEyebrow) {
+        memoriesEyebrow.textContent =
+            "LATEST MEMORIES";
+    }
+
+    if (memoriesTitle) {
+        memoriesTitle.textContent =
+            "Latest Memories";
+    }
+
+    if (memoriesDescription) {
+        memoriesDescription.textContent =
+            "The latest moments added to Memory Lane.";
+    }
+
     latestMemories.forEach((memory) => {
-        const photoCard = document.createElement("div");
 
-        photoCard.className = "photo-card";
+        const photoCard =
+            document.createElement("div");
 
-        const image = document.createElement("img");
+        photoCard.className =
+            "photo-card";
+
+        const image =
+            document.createElement("img");
 
         image.src =
             `./images/${memory.year}/${memory.monthFolder}/${memory.photo}`;
@@ -249,7 +455,8 @@ function displayLatestMemories() {
 
         image.loading = "lazy";
 
-        const caption = document.createElement("p");
+        const caption =
+            document.createElement("p");
 
         caption.textContent =
             `${monthNames[memory.monthFolder]} ${memory.year}`;
@@ -261,77 +468,62 @@ function displayLatestMemories() {
     });
 }
 
-if (exploreButton) {
-    exploreButton.addEventListener("click", openMemoryBrowser);
-}
 
-if (album2026) {
-    album2026.addEventListener("click", openMemoryBrowser);
-}
+function showLatestMemories() {
 
-if (albumAdventures) {
-    albumAdventures.addEventListener("click", openMemoryBrowser);
-}
+    selectedYear = null;
+    selectedMonth = null;
 
-if (albumSpecial) {
-    albumSpecial.addEventListener("click", openMemoryBrowser);
-}
-
-if (closeMemoryButton) {
-    closeMemoryButton.addEventListener("click", closeMemoryBrowser);
-}
-
-if (yearSelect) {
-    yearSelect.addEventListener("change", () => {
-        updateMonthDropdown();
-
-        if (memoryResults) {
-            memoryResults.innerHTML = `
-                <p class="empty-message">
-                    Select a month to view memories.
-                </p>
-            `;
-        }
-    });
-}
-
-if (viewMemoriesButton) {
-    viewMemoriesButton.addEventListener("click", displayMemories);
-}
-
-if (memoryModal) {
-    memoryModal.addEventListener("click", (event) => {
-        if (event.target === memoryModal) {
-            closeMemoryBrowser();
-        }
-    });
-}
-
-document.addEventListener("keydown", (event) => {
-    if (
-        event.key === "Escape" &&
-        memoryModal &&
-        memoryModal.classList.contains("active")
-    ) {
-        closeMemoryBrowser();
+    if (monthSection) {
+        monthSection.hidden = true;
     }
-});
 
-updateMonthDropdown();
+    displayLatestMemories();
+}
+
+
+if (exploreButton) {
+
+    exploreButton.addEventListener(
+        "click",
+        scrollToAlbums
+    );
+}
+
+
+if (backToYearsButton) {
+
+    backToYearsButton.addEventListener(
+        "click",
+        showLatestMemories
+    );
+}
+
+
+createYearCards();
 
 displayLatestMemories();
 
+
 if ("serviceWorker" in navigator) {
+
     window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js")
+
+        navigator.serviceWorker
+            .register("./service-worker.js")
+
             .then(() => {
-                console.log("Service Worker registered!");
+                console.log(
+                    "Service Worker registered!"
+                );
             })
+
             .catch((error) => {
                 console.error(
                     "Service Worker registration failed:",
                     error
                 );
             });
+
     });
 }
