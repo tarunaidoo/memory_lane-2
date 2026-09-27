@@ -1,23 +1,23 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
 }
 
 body {
-    font-family: Georgia, serif;
-    background: #f8f5ef;
-    color: #292722;
     min-width: 320px;
     overflow-x: hidden;
+    background: #f8f5ef;
+    color: #2f2a25;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.6;
 }
 
-img {
+body img {
     max-width: 100%;
 }
 
@@ -30,369 +30,303 @@ button {
     cursor: pointer;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-/* NAVIGATION */
+
+/* Navigation */
 
 .navbar {
-    min-height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    width: 100%;
+
+    background: rgba(248, 245, 239, 0.94);
+    border-bottom: 1px solid #ded7cc;
+
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    width: min(100% - 40px, 1400px);
+    min-height: 72px;
+
+    margin: 0 auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 clamp(20px, 8vw, 120px);
-
-    background: #f8f5ef;
-
-    position: sticky;
-    top: 0;
-
-    z-index: 100;
 }
 
 .logo {
-    font-size: clamp(20px, 2vw, 24px);
-    font-weight: normal;
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-weight: bold;
+    letter-spacing: -0.02em;
 }
 
-.navbar nav {
-    display: flex;
-    gap: clamp(15px, 3vw, 30px);
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: bold;
 }
 
-.navbar a {
-    text-decoration: none;
-
-    color: #292722;
-
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(12px, 1.2vw, 14px);
-
-    transition: opacity 0.2s ease;
-}
-
-.navbar a:hover {
+.nav-link:hover {
     opacity: 0.6;
 }
 
 
-/* HERO */
+/* Hero */
 
 .hero {
-    min-height: min(85vh, 900px);
+    min-height: min(760px, calc(100vh - 72px));
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    text-align: center;
+    padding: clamp(80px, 12vw, 160px) 20px;
 
-    padding: clamp(60px, 10vw, 120px) 20px;
+    text-align: center;
 
     background:
         radial-gradient(
-            circle at center,
-            #fffdf9,
-            #eee9df
-        );
+            circle at top left,
+            rgba(222, 205, 181, 0.35),
+            transparent 35%
+        ),
+        #f8f5ef;
 }
 
 .hero-content {
-    width: 100%;
-    max-width: 800px;
+    width: min(100%, 850px);
 }
 
 .eyebrow {
-    font-family: Arial, sans-serif;
+    margin-bottom: 12px;
 
-    font-size: clamp(0.7rem, 1vw, 0.8rem);
+    color: #8b7764;
 
-    letter-spacing: clamp(2px, 0.4vw, 3px);
-
-    color: #8b6f5a;
-
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
     font-weight: bold;
-}
-
-.hero .eyebrow {
-    margin-bottom: clamp(15px, 2vw, 20px);
+    letter-spacing: 0.18em;
 }
 
 .hero h1 {
-    font-size: clamp(52px, 10vw, 110px);
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+}
 
-    line-height: 0.9;
-
+.hero h1 span {
+    display: block;
+    font-style: italic;
     font-weight: normal;
-
-    margin-bottom: clamp(25px, 4vw, 35px);
 }
 
-.hero p:not(.eyebrow) {
-    font-family: Arial, sans-serif;
+.hero-description {
+    width: min(100%, 550px);
 
-    font-size: clamp(14px, 1.5vw, 16px);
+    margin: 30px auto 36px;
 
-    line-height: 1.7;
+    color: #6f665d;
 
-    width: min(100%, 500px);
-
-    margin: 0 auto 30px;
-
-    color: #555;
+    font-size: clamp(1rem, 2vw, 1.2rem);
 }
-
-
-/* BUTTONS */
 
 .primary-button {
-    border: none;
+    min-height: 52px;
 
-    padding: clamp(12px, 1.5vw, 15px)
-             clamp(22px, 3vw, 30px);
+    padding: 12px 26px;
 
-    background: #292722;
+    border: 1px solid #2f2a25;
+    border-radius: 999px;
 
-    color: white;
+    background: #2f2a25;
+    color: #ffffff;
 
-    cursor: pointer;
-
-    font-family: Arial, sans-serif;
-
-    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
 
     transition:
         transform 0.2s ease,
-        background 0.2s ease;
+        opacity 0.2s ease;
 }
 
 .primary-button:hover {
-    transform: translateY(-3px);
-
-    background: #4a4740;
+    transform: translateY(-2px);
+    opacity: 0.88;
 }
 
 
-/* ALBUMS */
+/* Sections */
 
-.albums-section {
-    padding: clamp(70px, 10vw, 120px)
-             clamp(20px, 8vw, 120px);
-}
-
-.section-heading {
-    text-align: center;
-
-    margin-bottom: clamp(35px, 5vw, 60px);
-}
-
-.section-heading h2 {
-    font-size: clamp(36px, 5vw, 50px);
-
-    font-weight: normal;
-
-    margin: 10px 0;
-}
-
-.section-description {
-    width: min(100%, 600px);
-
-    margin: 15px auto 0;
-
-    color: #777;
-
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(13px, 1.3vw, 15px);
-
-    line-height: 1.6;
-}
-
-
-/* YEAR CARDS */
-
-.album-grid {
-    width: min(100%, 1400px);
+.albums-section,
+.memories-section {
+    width: min(100% - 40px, 1400px);
 
     margin: 0 auto;
 
+    padding: clamp(70px, 9vw, 120px) 0;
+}
+
+.memories-section {
+    border-top: 1px solid #ded7cc;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.section-description {
+    max-width: 400px;
+
+    color: #756d64;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+}
+
+
+/* Year cards */
+
+.album-grid {
     display: grid;
 
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap: clamp(15px, 2.5vw, 30px);
+    gap: clamp(16px, 2vw, 28px);
 }
 
 .album-card {
-    width: 100%;
+    position: relative;
 
-    min-height: clamp(300px, 30vw, 420px);
+    min-height: 300px;
 
-    padding: clamp(25px, 3vw, 40px);
+    padding: 30px;
 
-    display: flex;
+    overflow: hidden;
 
-    flex-direction: column;
+    border: 1px solid #d8cfc3;
+    border-radius: 4px;
 
-    align-items: flex-start;
-
-    justify-content: flex-end;
+    background: #eee7dc;
 
     text-align: left;
 
-    cursor: pointer;
-
-    background: #e5dfd3;
-
-    color: #292722;
-
-    border-radius: 4px;
-
-    border: none;
-
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-
-    font-family: Georgia, serif;
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .album-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
 
     box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.10);
+        0 18px 40px rgba(66, 54, 42, 0.12);
 }
 
-.album-icon {
-    font-size: clamp(45px, 6vw, 65px);
+.album-card::after {
+    content: "";
 
-    margin-bottom: auto;
+    position: absolute;
 
-    align-self: center;
+    width: 180px;
+    height: 180px;
+
+    right: -50px;
+    bottom: -50px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.25);
 }
 
-.album-year {
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(9px, 1vw, 11px);
-
-    letter-spacing: clamp(2px, 0.3vw, 3px);
-
-    color: #8b6f5a;
-
-    font-weight: bold;
-
-    margin-bottom: 10px;
+.album-card-content {
+    position: relative;
+    z-index: 2;
 }
 
-.album-card h3 {
-    font-size: clamp(21px, 2vw, 25px);
-
-    font-weight: normal;
-
-    margin-bottom: 10px;
-}
-
-.album-card p {
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(13px, 1.2vw, 14px);
-
-    line-height: 1.6;
-
-    color: #666;
-
+.album-card .eyebrow {
     margin-bottom: 20px;
 }
 
-.album-link {
-    font-family: Arial, sans-serif;
+.album-card h3 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1;
+}
 
-    font-size: clamp(11px, 1.1vw, 13px);
+.album-card p:last-child {
+    margin-top: 20px;
 
-    font-weight: bold;
+    color: #756d64;
 
-    letter-spacing: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
 }
 
 
-/* MONTH FILTER */
+/* Months */
 
 .month-section {
-    width: min(100%, 1400px);
-
-    margin: clamp(50px, 7vw, 80px) auto 0;
-
-    padding-top: clamp(35px, 5vw, 50px);
+    margin-top: 90px;
+    padding-top: 70px;
 
     border-top: 1px solid #ded7cc;
 }
 
-.month-header {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 30px;
-
-    margin-bottom: 25px;
-}
-
-.month-header h3 {
-    font-size: clamp(25px, 4vw, 35px);
-
-    font-weight: normal;
-
-    margin-top: 8px;
+.month-heading {
+    margin-bottom: 30px;
 }
 
 .text-button {
     border: none;
-
     background: transparent;
 
-    color: #292722;
+    color: #6f6255;
 
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(11px, 1.2vw, 13px);
-
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
     font-weight: bold;
-
-    transition: opacity 0.2s ease;
 }
 
 .text-button:hover {
-    opacity: 0.6;
+    text-decoration: underline;
 }
 
 .month-list {
     display: flex;
-
     flex-wrap: wrap;
-
-    gap: 10px;
+    gap: 12px;
 }
 
 .month-button {
-    padding: 11px 20px;
+    padding: 12px 20px;
 
-    border: 1px solid #cfc6b9;
-
-    border-radius: 30px;
+    border: 1px solid #cfc4b7;
+    border-radius: 999px;
 
     background: transparent;
+    color: #4c443c;
 
-    color: #292722;
-
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(12px, 1.2vw, 14px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
 
     transition:
         background 0.2s ease,
@@ -400,233 +334,152 @@ button {
         transform 0.2s ease;
 }
 
-.month-button:hover {
-    transform: translateY(-2px);
-
-    background: #292722;
-
-    color: white;
-}
-
+.month-button:hover,
 .month-button.active {
-    background: #292722;
+    background: #2f2a25;
+    color: #ffffff;
 
-    color: white;
+    transform: translateY(-2px);
 }
 
 
-/* PHOTO GALLERY */
-
-.gallery-section {
-    padding: clamp(70px, 9vw, 100px)
-             clamp(20px, 8vw, 120px);
-
-    background: #f8f5ef;
-}
-
-.gallery-section .section-heading {
-    margin-bottom: clamp(35px, 5vw, 60px);
-}
+/* Photos */
 
 .photo-grid {
-    width: min(100%, 1400px);
-
-    margin: 0 auto;
-
     display: grid;
 
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap: clamp(15px, 2.5vw, 30px);
+    gap: clamp(18px, 2vw, 30px);
 }
 
 .photo-card {
-    min-width: 0;
-
-    background: white;
-
-    border-radius: 12px;
-
     overflow: hidden;
 
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #ddd5ca;
+    border-radius: 4px;
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.photo-card:hover {
-    transform: translateY(-6px);
+    background: #ffffff;
 
     box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.12);
+        0 8px 25px rgba(66, 54, 42, 0.06);
 }
 
 .photo-card img {
     width: 100%;
-
-    height: clamp(220px, 25vw, 320px);
-
-    object-fit: contain;
-
-    object-position: center;
+    height: 280px;
 
     display: block;
+
+    object-fit: contain;
+    object-position: center;
 
     background: #f8f5ef;
 }
 
 .photo-card p {
-    padding: clamp(14px, 2vw, 18px);
+    padding: 14px 16px;
 
-    margin: 0;
+    color: #6f665d;
 
-    color: #888;
-
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(12px, 1.2vw, 13px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
 }
-
-
-/* EMPTY GALLERY */
 
 .empty-message {
     grid-column: 1 / -1;
 
-    padding: 60px 20px;
+    padding: 50px 20px;
+
+    color: #81776d;
 
     text-align: center;
 
-    color: #777;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
-/* ABOUT */
+/* Footer */
 
-.about-section {
-    padding: clamp(70px, 10vw, 120px) 20px;
+.footer {
+    padding: 40px 20px;
+
+    border-top: 1px solid #ded7cc;
+
+    color: #8b8177;
 
     text-align: center;
 
-    background: #eae4d8;
-}
-
-.about-content {
-    width: min(100%, 600px);
-
-    margin: 0 auto;
-}
-
-.about-section h2 {
-    font-size: clamp(34px, 5vw, 45px);
-
-    font-weight: normal;
-
-    margin: 15px 0 20px;
-}
-
-.about-section p:not(.eyebrow) {
-    font-family: Arial, sans-serif;
-
-    opacity: 0.7;
-
-    line-height: 1.7;
-
-    font-size: clamp(14px, 1.4vw, 16px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
 }
 
 
-/* FOOTER */
-
-footer {
-    text-align: center;
-
-    padding: clamp(25px, 4vw, 40px) 20px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(11px, 1.2vw, 13px);
-
-    opacity: 0.6;
-}
-
-
-/* TABLET */
+/* Tablet */
 
 @media (max-width: 900px) {
 
-    .album-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
+    .album-grid,
     .photo-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
     }
 
-    .month-header {
+    .section-heading {
         align-items: flex-start;
-
         flex-direction: column;
+    }
+
+    .section-description {
+        max-width: 550px;
     }
 }
 
 
-/* MOBILE */
+/* Mobile */
 
 @media (max-width: 600px) {
 
-    .navbar {
-        min-height: 70px;
+    .nav-container {
+        width: min(100% - 28px, 1400px);
 
-        padding: 0 5%;
-    }
-
-    .navbar nav {
-        gap: 10px;
-    }
-
-    .navbar a {
-        font-size: 11px;
+        min-height: 62px;
     }
 
     .hero {
-        min-height: 80vh;
+        min-height: calc(100vh - 62px);
 
-        padding: 60px 20px;
+        padding:
+            80px 20px
+            100px;
     }
 
     .hero h1 {
-        font-size: clamp(52px, 16vw, 70px);
+        font-size: clamp(2.8rem, 14vw, 4.5rem);
     }
 
-    .albums-section {
-        padding: 70px 5%;
+    .albums-section,
+    .memories-section {
+        width: min(100% - 28px, 1400px);
     }
 
-    .section-heading h2 {
-        font-size: clamp(34px, 10vw, 40px);
-    }
-
-    .album-grid {
+    .album-grid,
+    .photo-grid {
         grid-template-columns: 1fr;
     }
 
     .album-card {
-        min-height: 300px;
+        min-height: 230px;
+    }
+
+    .photo-card img {
+        height: 300px;
     }
 
     .month-section {
-        margin-top: 50px;
+        margin-top: 60px;
+        padding-top: 50px;
     }
 
     .month-list {
@@ -635,75 +488,44 @@ footer {
 
     .month-button {
         flex: 1 1 auto;
-
         text-align: center;
-    }
-
-    .gallery-section {
-        padding: 70px 5%;
-    }
-
-    .photo-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .photo-card img {
-        height: clamp(260px, 75vw, 360px);
-    }
-
-    .about-section {
-        padding: 70px 20px;
-    }
-
-    .about-section h2 {
-        font-size: 38px;
     }
 }
 
 
-/* VERY SMALL SCREENS */
+/* Very small screens */
 
 @media (max-width: 380px) {
 
-    .navbar {
-        padding: 0 15px;
-    }
-
-    .navbar nav {
-        gap: 8px;
-    }
-
-    .navbar a {
-        font-size: 10px;
-    }
-
     .hero {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .hero h1 {
-        font-size: 48px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .albums-section,
-    .gallery-section {
-        padding-left: 15px;
-        padding-right: 15px;
+    .memories-section {
+        width: min(100% - 24px, 1400px);
+    }
+
+    .primary-button {
+        width: 100%;
+    }
+
+    .photo-card img {
+        height: 250px;
     }
 }
 
 
-/* LARGE SCREENS */
+/* Large screens */
 
 @media (min-width: 1600px) {
 
-    .hero-content {
-        max-width: 900px;
+    .photo-card img {
+        height: 340px;
     }
 
-    .album-grid,
-    .photo-grid {
-        max-width: 1500px;
+    .album-card {
+        min-height: 360px;
     }
 }
