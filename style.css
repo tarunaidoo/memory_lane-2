@@ -21,59 +21,61 @@ img {
     max-width: 100%;
 }
 
-button,
-select {
+button {
     font: inherit;
 }
 
-button {
-    cursor: pointer;
-}
 
-
-/* NAVIGATION */
+/* NAVBAR */
 
 .navbar {
     min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 clamp(20px, 8vw, 120px);
+    background: #f8f5ef;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 clamp(20px, 8vw, 120px);
-
-    background: #f8f5ef;
-
-    position: sticky;
-    top: 0;
-
-    z-index: 100;
 }
 
 .logo {
     font-size: clamp(20px, 2vw, 24px);
     font-weight: normal;
-}
-
-.navbar nav {
-    display: flex;
-    gap: clamp(15px, 3vw, 30px);
-}
-
-.navbar a {
-    text-decoration: none;
-
     color: #292722;
+    text-decoration: none;
+}
 
+.nav-link {
+    text-decoration: none;
+    color: #292722;
     font-family: Arial, sans-serif;
-
     font-size: clamp(12px, 1.2vw, 14px);
-
     transition: opacity 0.2s ease;
 }
 
-.navbar a:hover {
+.nav-link:hover {
     opacity: 0.6;
+}
+
+
+/* GENERAL */
+
+.eyebrow {
+    font-family: Arial, sans-serif;
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
+    letter-spacing: clamp(2px, 0.4vw, 3px);
+    color: #8b6f5a;
+    font-weight: bold;
 }
 
 
@@ -81,15 +83,11 @@ button {
 
 .hero {
     min-height: min(85vh, 900px);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
-
     padding: clamp(60px, 10vw, 120px) 20px;
-
     background:
         radial-gradient(
             circle at center,
@@ -103,65 +101,43 @@ button {
     max-width: 800px;
 }
 
-.eyebrow {
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(0.7rem, 1vw, 0.8rem);
-
-    letter-spacing: clamp(2px, 0.4vw, 3px);
-
-    color: #8b6f5a;
-
-    font-weight: bold;
-}
-
 .hero .eyebrow {
     margin-bottom: clamp(15px, 2vw, 20px);
 }
 
 .hero h1 {
     font-size: clamp(52px, 10vw, 110px);
-
     line-height: 0.9;
-
     font-weight: normal;
-
     margin-bottom: clamp(25px, 4vw, 35px);
 }
 
-.hero p:not(.eyebrow) {
+.hero h1 span {
+    display: block;
+    font-style: italic;
+}
+
+.hero-description {
     font-family: Arial, sans-serif;
-
     font-size: clamp(14px, 1.5vw, 16px);
-
     line-height: 1.7;
-
     width: min(100%, 500px);
-
     margin: 0 auto 30px;
-
     color: #555;
 }
 
 
-/* BUTTONS */
+/* BUTTON */
 
 .primary-button {
     border: none;
-
     padding: clamp(12px, 1.5vw, 15px)
              clamp(22px, 3vw, 30px);
-
     background: #292722;
-
     color: white;
-
     cursor: pointer;
-
     font-family: Arial, sans-serif;
-
     border-radius: 30px;
-
     transition:
         transform 0.2s ease,
         background 0.2s ease;
@@ -169,8 +145,34 @@ button {
 
 .primary-button:hover {
     transform: translateY(-3px);
-
     background: #4a4740;
+}
+
+
+/* SECTION HEADINGS */
+
+.section-heading {
+    width: min(100%, 1400px);
+    margin: 0 auto clamp(35px, 5vw, 60px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.section-heading h2 {
+    font-size: clamp(36px, 5vw, 50px);
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+.section-description {
+    max-width: 400px;
+    font-family: Arial, sans-serif;
+    font-size: clamp(13px, 1.2vw, 14px);
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 5px;
 }
 
 
@@ -181,189 +183,97 @@ button {
              clamp(20px, 8vw, 120px);
 }
 
-.section-heading {
-    text-align: center;
-
-    margin-bottom: clamp(35px, 5vw, 60px);
-}
-
-.section-heading h2 {
-    font-size: clamp(36px, 5vw, 50px);
-
-    font-weight: normal;
-
-    margin: 10px 0;
-}
-
-.section-description {
-    width: min(100%, 600px);
-
-    margin: 15px auto 0;
-
-    color: #777;
-
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(13px, 1.3vw, 15px);
-
-    line-height: 1.6;
-}
-
-
-/* YEAR CARDS */
-
 .album-grid {
     width: min(100%, 1400px);
-
     margin: 0 auto;
-
     display: grid;
-
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+        repeat(2, minmax(0, 1fr));
     gap: clamp(15px, 2.5vw, 30px);
 }
 
 .album-card {
     width: 100%;
-
     min-height: clamp(300px, 30vw, 420px);
-
     padding: clamp(25px, 3vw, 40px);
-
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
-
     justify-content: flex-end;
-
     text-align: left;
-
     cursor: pointer;
-
     background: #e5dfd3;
-
     color: #292722;
-
     border-radius: 4px;
-
     border: none;
-
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-
     font-family: Georgia, serif;
 }
 
 .album-card:hover {
     transform: translateY(-8px);
-
     box-shadow:
         0 15px 35px rgba(0, 0, 0, 0.10);
 }
 
 .album-icon {
     font-size: clamp(45px, 6vw, 65px);
-
     margin-bottom: auto;
-
     align-self: center;
 }
 
 .album-year {
     font-family: Arial, sans-serif;
-
     font-size: clamp(9px, 1vw, 11px);
-
     letter-spacing: clamp(2px, 0.3vw, 3px);
-
     color: #8b6f5a;
-
     font-weight: bold;
-
     margin-bottom: 10px;
 }
 
 .album-card h3 {
     font-size: clamp(21px, 2vw, 25px);
-
     font-weight: normal;
-
     margin-bottom: 10px;
 }
 
 .album-card p {
     font-family: Arial, sans-serif;
-
     font-size: clamp(13px, 1.2vw, 14px);
-
     line-height: 1.6;
-
     color: #666;
-
     margin-bottom: 20px;
 }
 
 .album-link {
     font-family: Arial, sans-serif;
-
     font-size: clamp(11px, 1.1vw, 13px);
-
     font-weight: bold;
-
     letter-spacing: 1px;
 }
 
 
-/* MONTH FILTER */
+/* MONTH SELECTION */
 
 .month-section {
     width: min(100%, 1400px);
-
-    margin: clamp(50px, 7vw, 80px) auto 0;
-
-    padding-top: clamp(35px, 5vw, 50px);
-
-    border-top: 1px solid #ded7cc;
+    margin: clamp(60px, 8vw, 90px) auto 0;
 }
 
-.month-header {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 30px;
-
-    margin-bottom: 25px;
-}
-
-.month-header h3 {
-    font-size: clamp(25px, 4vw, 35px);
-
-    font-weight: normal;
-
-    margin-top: 8px;
+.month-heading {
+    margin-bottom: clamp(30px, 4vw, 45px);
 }
 
 .text-button {
     border: none;
-
-    background: transparent;
-
-    color: #292722;
-
+    background: none;
+    color: #8b6f5a;
+    cursor: pointer;
     font-family: Arial, sans-serif;
-
-    font-size: clamp(11px, 1.2vw, 13px);
-
-    font-weight: bold;
-
+    font-size: 13px;
+    padding: 8px 0;
     transition: opacity 0.2s ease;
 }
 
@@ -372,87 +282,63 @@ button {
 }
 
 .month-list {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 15px;
 }
 
 .month-button {
-    padding: 11px 20px;
-
-    border: 1px solid #cfc6b9;
-
-    border-radius: 30px;
-
-    background: transparent;
-
+    border: 1px solid #d8d0c2;
+    background: #fffdf9;
     color: #292722;
-
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(12px, 1.2vw, 14px);
-
+    padding: 22px 20px;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 4px;
+    font-family: Georgia, serif;
+    font-size: 18px;
     transition:
         background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
+        transform 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .month-button:hover {
-    transform: translateY(-2px);
-
-    background: #292722;
-
-    color: white;
-}
-
-.month-button.active {
-    background: #292722;
-
-    color: white;
+    background: #e5dfd3;
+    border-color: #e5dfd3;
+    transform: translateY(-3px);
 }
 
 
-/* PHOTO GALLERY */
+/* MEMORIES */
 
-.gallery-section {
+.memories-section {
     padding: clamp(70px, 9vw, 100px)
              clamp(20px, 8vw, 120px);
-
     background: #f8f5ef;
 }
 
-.gallery-section .section-heading {
-    margin-bottom: clamp(35px, 5vw, 60px);
+.memories-section .section-heading {
+    align-items: flex-end;
 }
 
 .photo-grid {
     width: min(100%, 1400px);
-
     margin: 0 auto;
-
     display: grid;
-
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
-
     gap: clamp(15px, 2.5vw, 30px);
 }
 
 .photo-card {
     min-width: 0;
-
     background: white;
-
     border-radius: 12px;
-
     overflow: hidden;
-
     box-shadow:
         0 8px 25px rgba(0, 0, 0, 0.08);
-
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
@@ -460,51 +346,25 @@ button {
 
 .photo-card:hover {
     transform: translateY(-6px);
-
     box-shadow:
         0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
 .photo-card img {
     width: 100%;
-
     height: clamp(220px, 25vw, 320px);
-
     object-fit: contain;
-
     object-position: center;
-
     display: block;
-
     background: #f8f5ef;
 }
 
-.photo-card p {
-    padding: clamp(14px, 2vw, 18px);
-
-    margin: 0;
-
-    color: #888;
-
-    font-family: Arial, sans-serif;
-
-    font-size: clamp(12px, 1.2vw, 13px);
-}
-
-
-/* EMPTY GALLERY */
-
 .empty-message {
-    grid-column: 1 / -1;
-
-    padding: 60px 20px;
-
+    width: 100%;
     text-align: center;
-
-    color: #777;
-
+    padding: 60px 20px;
     font-family: Arial, sans-serif;
-
+    color: #888;
     font-size: 14px;
 }
 
@@ -512,34 +372,30 @@ button {
 /* ABOUT */
 
 .about-section {
-    padding: clamp(70px, 10vw, 120px) 20px;
-
+    padding: clamp(80px, 11vw, 130px) 20px;
     text-align: center;
-
     background: #eae4d8;
 }
 
 .about-content {
     width: min(100%, 600px);
-
     margin: 0 auto;
+}
+
+.about-section .eyebrow {
+    margin-bottom: 15px;
 }
 
 .about-section h2 {
     font-size: clamp(34px, 5vw, 45px);
-
     font-weight: normal;
-
-    margin: 15px 0 20px;
+    margin-bottom: 20px;
 }
 
 .about-section p:not(.eyebrow) {
     font-family: Arial, sans-serif;
-
     opacity: 0.7;
-
     line-height: 1.7;
-
     font-size: clamp(14px, 1.4vw, 16px);
 }
 
@@ -548,14 +404,16 @@ button {
 
 footer {
     text-align: center;
-
     padding: clamp(25px, 4vw, 40px) 20px;
-
+    background: #292722;
+    color: #f8f5ef;
     font-family: Arial, sans-serif;
-
     font-size: clamp(11px, 1.2vw, 13px);
+}
 
-    opacity: 0.6;
+footer p {
+    margin: 0;
+    opacity: 0.75;
 }
 
 
@@ -563,7 +421,24 @@ footer {
 
 @media (max-width: 900px) {
 
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .section-description {
+        max-width: 500px;
+    }
+
     .album-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .album-card {
+        min-height: 300px;
+    }
+
+    .month-list {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
     }
@@ -571,12 +446,6 @@ footer {
     .photo-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
-    }
-
-    .month-header {
-        align-items: flex-start;
-
-        flex-direction: column;
     }
 }
 
@@ -587,21 +456,11 @@ footer {
 
     .navbar {
         min-height: 70px;
-
         padding: 0 5%;
-    }
-
-    .navbar nav {
-        gap: 10px;
-    }
-
-    .navbar a {
-        font-size: 11px;
     }
 
     .hero {
         min-height: 80vh;
-
         padding: 60px 20px;
     }
 
@@ -626,20 +485,18 @@ footer {
     }
 
     .month-section {
-        margin-top: 50px;
+        margin-top: 60px;
+    }
+
+    .month-heading {
+        gap: 15px;
     }
 
     .month-list {
-        gap: 8px;
+        grid-template-columns: 1fr;
     }
 
-    .month-button {
-        flex: 1 1 auto;
-
-        text-align: center;
-    }
-
-    .gallery-section {
+    .memories-section {
         padding: 70px 5%;
     }
 
@@ -669,14 +526,6 @@ footer {
         padding: 0 15px;
     }
 
-    .navbar nav {
-        gap: 8px;
-    }
-
-    .navbar a {
-        font-size: 10px;
-    }
-
     .hero {
         padding-left: 15px;
         padding-right: 15px;
@@ -687,7 +536,7 @@ footer {
     }
 
     .albums-section,
-    .gallery-section {
+    .memories-section {
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -703,7 +552,8 @@ footer {
     }
 
     .album-grid,
-    .photo-grid {
+    .photo-grid,
+    .section-heading {
         max-width: 1500px;
     }
 }
