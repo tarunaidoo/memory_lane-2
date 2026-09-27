@@ -15,7 +15,7 @@ const memories = {
         "Jun26": ["photo8.png"],
         "Jul26": ["photo9.png"],
         "Aug26": ["photo11.png"],
-        "Sept26": ["photo5.png"]
+        "Sept26": ["Sept26_1.jpeg", "Sept26_2.jpeg", "Sept26_3.jpeg"]
     }
 };
 
