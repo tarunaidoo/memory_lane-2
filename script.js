@@ -15,7 +15,11 @@ const memories = {
         "Jun26": ["photo8.png"],
         "Jul26": ["photo9.png"],
         "Aug26": ["photo11.png"],
-        "Sept26": ["Sept26_1.jpeg", "Sept26_2.jpeg", "Sept26_3.jpeg"]
+        "Sept26": [
+            "Sept26_1.jpeg",
+            "Sept26_2.jpeg",
+            "Sept26_3.jpeg"
+        ]
     }
 };
 
@@ -136,15 +140,34 @@ function displayMemories() {
         return;
     }
 
+    const heading = document.createElement("div");
+
+    heading.className = "memory-results-heading";
+
+    heading.innerHTML = `
+        <p class="eyebrow">MEMORIES</p>
+        <h3>${monthNames[monthFolder] || monthFolder} ${year}</h3>
+    `;
+
+    memoryResults.appendChild(heading);
+
+    const photoGrid = document.createElement("div");
+
+    photoGrid.className = "photo-grid";
+
     photos.forEach((photo) => {
         const photoCard = document.createElement("div");
 
-        photoCard.className = "memory-photo-card";
+        photoCard.className = "photo-card";
 
         const image = document.createElement("img");
 
-        image.src = `./images/${year}/${monthFolder}/${photo}`;
-        image.alt = `${monthNames[monthFolder] || monthFolder} ${year} memory`;
+        image.src =
+            `./images/${year}/${monthFolder}/${photo}`;
+
+        image.alt =
+            `${monthNames[monthFolder] || monthFolder} ${year} memory`;
+
         image.loading = "lazy";
 
         image.addEventListener("error", () => {
@@ -153,21 +176,18 @@ function displayMemories() {
             const errorMessage = document.createElement("p");
 
             errorMessage.className = "empty-message";
-            errorMessage.textContent = `Unable to load ${photo}.`;
+            errorMessage.textContent =
+                `Unable to load ${photo}.`;
 
             photoCard.appendChild(errorMessage);
         });
 
-        const monthLabel = document.createElement("p");
-
-        monthLabel.className = "memory-month";
-        monthLabel.textContent = `${monthNames[monthFolder] || monthFolder} ${year}`;
-
         photoCard.appendChild(image);
-        photoCard.appendChild(monthLabel);
 
-        memoryResults.appendChild(photoCard);
+        photoGrid.appendChild(photoCard);
     });
+
+    memoryResults.appendChild(photoGrid);
 }
 
 function displayLatestMemories() {
